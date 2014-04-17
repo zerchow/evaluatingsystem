@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">神经专科医院床旁神经心理评估系统</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <!-- 患者信息界面 -->
+    <string name="patient_info_in">患者信息录入</string>
+    <string name="patient_name_tv">患者姓名</string>
+    <string name="patient_name_et">请填写患者姓名</string>
+    <string name="patient_id_tv">住院ID</string>
+    <string name="patient_id_et">请填写患者住院ID</string>
+    <string name="patient_gender_tv">患者性别</string>
+    <string name="patient_male_rb">男</string>
+    <string name="patient_female_rb">女</string>
+    <string name="patient_birth_tv">出生年月</string>
+    <string name="patient_diagnose_tv">入院诊断</string>
+    <string name="patient_diagnose_et">请填写患者入院诊断</string>
+    <string name="patient_evaltime_tv">评估时间</string>
+    <string name="patient_info_submit">确定提交</string>
+    <!-- 评估界面 -->
+    <string name="doctor_name_tv">医生姓名</string>
+    <!-- 首页患者操作 -->
+    <string name="patientinfo_id">ID</string>
+    <string name="patientinfo_name">姓名</string>
+    <string name="patientinfo_gender">性别</string>
+    <string name="patientinfo_diagnose">诊断</string>
+    <!-- 评估主界面 -->
+    <string name="type_1">癫痫测验</string>
+    <string name="type_1_1">MMSE</string>
+    <string name="type_2">额叶功能</string>
+    <string name="type_2_1">汉诺塔任务</string>
+    <string name="type_2_2">连线测验</string>
+    <string name="type_2_3">威斯康星卡片分类</string>
+    <string name="type_2_4">线索GoNoGo</string>
+    <string name="type_2_5">字色干扰</string>
+    <string name="type_3">记忆测验</string>
+    <string name="type_3_1">自动加工字母记忆广度</string>
+    <string name="type_3_2">视觉数字广度</string>
+    <string name="type_3_3">听觉数字广度</string>
+    <!-- mmse -->
+    <string name="mmse_title">简明精神状态测试</string>
+    <string name="orientation_tv">定时定向</string>
+    <string name="registration_tv">命名并记忆</string>
+    <string name="attention_calculation_tv">注意力和计算力</string>
+    <string name="recall_tv">回忆能力</string>
+    <string name="language_tv">语言能力</string>
+    <string name="mmse_pro_01">
+        现在是（哪一年）（什么季节）今天是（几月）（几号）（星期几）? 分数 （总分: 5）
+    </string>
+    <string name="mmse_pro_02">
+        你现在在（哪个国家）（哪个城市）（那个街道）（哪家医院）（第几层楼）? 分数 （总分: 5）
+    </string>
+    <string name="mmse_pro_03">
+        命名3样物品: 1秒钟说一个词，告诉病人当你说完一遍要记住这三样物品，答对一个给一分。重复告诉他们，直到这三样东西都学会。记录实验：分数 （总分: 3）
+    </string>
+    <string name="mmse_pro_04">
+        依次递减7:答对一个给一分，知道说出5个答案。分数 （总分: 5）
+    </string>
+    <string name="mmse_pro_05">
+        请患者重复刚才记住的三样物品，答对一个给一分。分数 （总分: 3）
+    </string>
+    <string name="mmse_pro_06">
+        对以下物品进行命名。分数 （总分: 2）
+    </string>
+    <string name="mmse_pro_07">
+        重复一句话，要求没有逻辑错误。分数 （总分: 1）
+    </string>
+    <string name="mmse_pro_08">
+        根据指令做三步动作 “用你的右手拿着这张纸，并将它对折后，放在桌面上”。分数 (总分: 3)
+    </string>
+    <string name="mmse_pro_09">
+        念出这句话并照着这句话的意思去做:闭上你的眼睛。分数 （总分: 1）
+    </string>
+    <string name="mmse_pro_10">
+        理解力: 写出一个完整的句子。分数 （总分: 1）
+    </string>
+    <string name="mmse_pro_11">
+        照这个图画一个一样的出来。分数 （总分: 1）
+    </string>
+    <string name="mmse_pro_submit">确定提交</string>
+    <string name="mmse_pro_12">评估整个过程患者的意识状态</string>
+    <string-array name="mmse_choose">
+        <item>清楚</item>
+        <item>嗜睡</item>
+        <item>朦胧</item>
+        <item>昏迷</item>
+    </string-array>
+    <!-- 汉诺塔欢迎界面 -->
+    <string name="reset">重新开始</string>
+    <string name="next">下一个</string>
+    <string name="hanoi_intro_1">欢迎来到汉诺塔实验！</string>
+    <string name="hanoi_intro_2">你会看到有三个不同长度的柱子和三个不同颜色的珠子组成的模型。</string>
+    <string name="hanoi_intro_3">左边的模型是初始模型，右边的是目标模型，你所要做的就是移动左边模型的珠子使得变成右边的模型。</string>
+    <string name="hanoi_intro_4">完成整个测验你需要遵循以下规则：</string>
+    <string-array name="hanoi_intro_child">
+        <item>你一次只能移动一个球</item>
+        <item>你移动的次数已经规定好，不能超过所设定的次数</item>
+        <item>你所移动的目标只能是三个柱子中的一个</item>
+        <item>你最多只能移动三个到左边的柱子上，移动两个到中间的柱子上，移动一个到右边的柱子上</item>
+        <item>最后，你需要制定一个计划来完成测验</item>
+    </string-array>
+    <string name="hanoi_intro_5">你已经完成了实践阶段，接下来是测试部分，请谨记这些规则：</string>
+    <!-- 连线测验 -->
+    <!-- 威斯康星 -->
+    <string name="wis_head">【威斯康星卡片分类规则】</string>
+    <string name="wis_1">三种分类规则：颜色、形状、数量（循环进行）</string>
+    <string name="wis_2">游戏一开始为颜色分类</string>
+    <string name="wis_3">当连续4次正确时，自动进行下一分类</string>
+    <string name="wis_4">如果连续次数小于4，则不会进行下一分类</string>
+    <string name="wis_5">每种分类最多进行2次，此时游戏自动结束</string>
+    <string name="wis_6">总的累计次数最多128，此时游戏自动结束</string>
+    <!-- 字色干扰 -->
+    <string-array name="interference">
+        <item>红色</item>
+        <item>绿色</item>
+        <item>蓝色</item>
+        <item>黄色</item>
+    </string-array>
+    <!-- 结果查询 -->
+    <string name="doctor">医生</string>
+    <string name="eval_date">评估日期</string>
+    <string name="eval_start">评估开始</string>
+    <string name="eval_end">评估结束</string>
+    <string name="score">分数</string>
+    <string name="state">意识状态</string>
+    <string name="simpleaerror">练习A错误</string>
+    <string name="simpleberror">练习B错误</string>
+    <string name="color1">颜色1</string>
+    <string name="form1">形状1</string>
+    <string name="number1">数量1</string>
+    <string name="color2">颜色2</string>
+    <string name="form2">形状2</string>
+    <string name="number2">数量2</string>
+    <string name="correct">正确</string>
+    <string name="error">错误</string>
+    <string name="ospanabsolute">ospan绝对分数</string>
+    <string name="ospancorrect">ospan正确数</string>
+    <string name="matherror">数学错误数</string>
+    <string name="mathspeed">数学速度错误</string>
+    <string name="mathaccuracy">数学准确错误</string>
+    <string name="fteml">顺序TE_ML</string>
+    <string name="ftett">顺序TE_TT</string>
+    <string name="fml">顺序ML</string>
+    <string name="fms">顺序MS</string>
+    <string name="bteml">倒序TE_ML</string>
+    <string name="btett">倒序TE_TT</string>
+    <string name="bml">倒序ML</string>
+    <string name="bms">倒序MS</string>
+
+</resources>

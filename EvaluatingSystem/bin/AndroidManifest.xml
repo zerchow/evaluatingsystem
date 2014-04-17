@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest android:versionCode="1" android:versionName="1.0"
+    package="com.zhou.evaluatingsystem" xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="18"/>
+    <application android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" android:theme="@style/AppTheme">
+        <activity android:label="@string/app_name"
+            android:name="com.zhou.evaluatingsystem.MainActivity" android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <!--created by ZHOU at 2014-02-13 20:56:34-->
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name=".PatientInfoActivity" android:screenOrientation="landscape"/>
+        <!--created by ZHOU at 2014-02-20 00:03:33-->
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name=".EvaluationActivity" android:screenOrientation="landscape"/>
+        <!--created by ZHOU at 2014-02-26 19:32:34-->
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name="com.zhou.program.MmseActivity" android:screenOrientation="landscape"/>
+        <!--created by ZHOU at 2014-02-28 13:41:16-->
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name="com.zhou.program.TowerOfHanoiActivity" android:screenOrientation="landscape"/>
+        <!--created by ZHOU at 2014-03-02 19:53:34-->
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name="com.zhou.program.LineContactActivity" android:screenOrientation="landscape"/>
+        <!--created by ZHOU at 2014-03-04 12:40:44-->
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name="com.zhou.program.WisconsinActivity" android:screenOrientation="landscape"/>
+        <!--created by ZHOU at 2014-03-04 17:39:06-->
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name="com.zhou.program.CuedGoNoGoActivity" android:screenOrientation="landscape"/>
+        <!--created by ZHOU at 2014-03-05 19:49:30-->
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name="com.zhou.program.WordColorInterferenceActivity" android:screenOrientation="landscape"/>
+        <!--created by ZHOU at 2014-03-09 19:58:15-->
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name="com.zhou.program.AospanActivity" android:screenOrientation="landscape"/>
+        <!--created by ZHOU at 2014-03-09 20:17:39-->
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name="com.zhou.program.AospanSolverActivity" android:screenOrientation="landscape"/>
+        <!--created by ZHOU at 2014-03-16 15:10:22-->
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name="com.zhou.program.DigitSpanVisualActivity" android:screenOrientation="landscape"/>
+        <!--created by ZHOU at 2014-03-19 18:47:36-->
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name="com.zhou.program.DigitSpanAcousticActivity" android:screenOrientation="landscape"/>
+        <!--created by ZHOU at 2014-03-21 15:00:33-->
+        <activity
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name="com.zhou.program.MmseHelperActivity" android:screenOrientation="landscape"/>
+        <!--created by ZHOU at 2014-03-24 16:46:37-->
+        <!--created by ZHOU at 2014-03-28 15:08:49-->
+        <activity android:name=".CheckResultActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape"/>
+    </application>
+</manifest>

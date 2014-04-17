@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical" >
+	    <TextView 
+	        android:id="@+id/prac_test_tv"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_weight="1"
+	        android:textSize="40dp"
+	        android:gravity="center"
+	        android:onClick="clickMath"/>
+	    <LinearLayout 
+	        android:id="@+id/judge_ll"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_weight="2"
+	        android:orientation="horizontal"
+	        android:visibility="gone">
+	        <Button 
+		        android:id="@+id/true_bt"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:text="Yes"
+		        android:layout_margin="15dp"
+		        android:onClick="clickYes"/>
+		    <Button 
+		        android:id="@+id/false_bt"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:text="No"
+		        android:layout_margin="15dp"
+		        android:onClick="clickNo"/>
+	    </LinearLayout>
+	</LinearLayout>
+	<TextView 
+	    android:id="@+id/aospantip_tv"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:textSize="25sp"/>
+</RelativeLayout>
+
