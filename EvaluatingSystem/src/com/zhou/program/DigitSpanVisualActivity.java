@@ -380,6 +380,8 @@ public class DigitSpanVisualActivity extends Activity
 					msg.setData(bundle);
 					handler.sendMessage(msg);
 				}
+				if(kill)
+					return;
 				Thread.sleep(1100);
 				handler.sendEmptyMessage(FinalUtil.DS_SHOWTIP);
 				Thread.sleep(1100);

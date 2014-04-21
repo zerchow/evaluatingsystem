@@ -206,7 +206,8 @@ public class DigitSpan
 				this.backward_sequences.add(this.currentSequence);
 				this.backward_responses.add(userInput);
 				if(this.currentSequence.equals(
-						new StringBuilder(userInput).toString()))
+						new StringBuilder(userInput)
+						.reverse().toString()))
 				{
 					if(this.backward_ML < this.currentLength)
 						this.backward_ML = this.currentLength;
@@ -311,10 +312,10 @@ public class DigitSpan
 	//
 	public float[] getResult()
 	{
-		Map<Integer,Integer> forwardmap_a = new HashMap<Integer, Integer>();
-		Map<Integer,Integer> forwardmap_c = new HashMap<Integer, Integer>();
-		Map<Integer,Integer> backwardmap_a = new HashMap<Integer, Integer>();
-		Map<Integer,Integer> backwardmap_c = new HashMap<Integer, Integer>();
+		HashMap<Integer,Integer> forwardmap_a = new HashMap<Integer, Integer>();
+		HashMap<Integer,Integer> forwardmap_c = new HashMap<Integer, Integer>();
+		HashMap<Integer,Integer> backwardmap_a = new HashMap<Integer, Integer>();
+		HashMap<Integer,Integer> backwardmap_c = new HashMap<Integer, Integer>();
 		for(int i = 0; i < this.forward_sequences.size(); i ++)
 		{
 			String str = this.forward_sequences.get(i);
@@ -348,11 +349,19 @@ public class DigitSpan
 		this.forward_MS += 2.5;
 		for(Entry<Integer, Integer> entry : forwardmap_a.entrySet())
 		{
+			if(entry.getValue().intValue() == 0)
+			{
+				continue;
+			}
 			this.forward_MS += forwardmap_c.get(entry.getKey()) / (float)entry.getValue();
 		}
 		this.backward_MS += 1.5;
 		for(Entry<Integer, Integer> entry : backwardmap_a.entrySet())
 		{
+			if(entry.getValue().intValue() == 0)
+			{
+				continue;
+			}
 			this.backward_MS += backwardmap_c.get(entry.getKey()) / (float)entry.getValue();
 		}
 		float[] result = new float[8];

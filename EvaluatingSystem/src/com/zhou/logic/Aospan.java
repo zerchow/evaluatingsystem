@@ -268,10 +268,10 @@ public class Aospan
 			{
 				int preresult = result;
 				result += r;
-				while(result <= 0 || result == preresult)
+				while(result < 0 || result == preresult)
 				{
 					r += 2;
-					preresult = result;
+					result = preresult;
 					result += r;
 				}
 			}
