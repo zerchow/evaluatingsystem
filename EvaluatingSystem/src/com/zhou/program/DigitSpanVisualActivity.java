@@ -366,6 +366,8 @@ public class DigitSpanVisualActivity extends Activity
 		}
 		public void run()
 		{
+			if(kill)
+				return;
 			try
 			{
 				handler.sendEmptyMessage(FinalUtil.DS_SHOWTIP);

@@ -203,6 +203,8 @@ public class DigitSpanAcousticActivity extends Activity
 	{
 		public void handleMessage(Message msg) 
 		{
+			if(kill)
+				return;
 			super.handleMessage(msg);
 			Bundle bundle = msg.getData();
 			switch(msg.what)
@@ -410,10 +412,14 @@ public class DigitSpanAcousticActivity extends Activity
 		}
 		public void run()
 		{
+			if(kill)
+				return;
 			try
 			{
 				handler.sendEmptyMessage(FinalUtil.DS_SHOWTIP);
-				for(int i = 0; i < this.toShow.length(); i ++)
+				for(int i = 0; i < this.toShow.length() &&
+						! kill; i ++)
+					
 				{
 					String temp = this.toShow.substring(i, i + 1);
 					Thread.sleep(1100);
@@ -426,6 +432,8 @@ public class DigitSpanAcousticActivity extends Activity
 					getMP(ACOUSTICRESOURCE
 							[Integer.valueOf(temp) - 1]).start();
 				}
+				if(kill)
+					return;
 				Thread.sleep(1100);
 				handler.sendEmptyMessage(FinalUtil.DS_SHOWTIP);
 				Thread.sleep(1100);
