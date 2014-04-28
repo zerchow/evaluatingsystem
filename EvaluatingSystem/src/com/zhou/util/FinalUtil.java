@@ -7,9 +7,13 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.NetworkInfo.State;
 
 public class FinalUtil implements Serializable 
 {
+	//https://github.com/zerchow/evaluatingsystem.git
 	//性别常量
 	public static final String MALE = "男";
 	public static final String FEMALE = "女";
@@ -167,5 +171,31 @@ public class FinalUtil implements Serializable
 		return calendar.get(Calendar.YEAR) + "-"
 				+ (calendar.get(Calendar.MONTH) + 1) + "-"
 				+ calendar.get(Calendar.DATE);
+	}
+	//
+	public static boolean hasNetwork(Context context)
+	{
+		ConnectivityManager con = (ConnectivityManager)
+				context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo info = con.getActiveNetworkInfo();
+		if(info != null || info.isAvailable())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	public static boolean isWifi(Context context)
+	{
+		ConnectivityManager con = (ConnectivityManager)
+				context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		State wifi = con.getNetworkInfo(
+				ConnectivityManager.TYPE_WIFI).getState();
+		if(wifi == State.CONNECTED)
+			return true;
+		else
+			return false;
 	}
 }

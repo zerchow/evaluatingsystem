@@ -2,16 +2,23 @@
 <manifest android:versionCode="1" android:versionName="1.0"
     package="com.zhou.evaluatingsystem" xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="18"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <application android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" android:theme="@style/AppTheme">
         <activity android:label="@string/app_name"
-            android:name="com.zhou.evaluatingsystem.MainActivity" android:screenOrientation="landscape">
+            android:name="com.zhou.evaluatingsystem.EnterActivity" android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <!--created by ZHOU at 2014-04-28 16:03:01-->
+        <activity 
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name=".MainActivity" android:screenOrientation="landscape"/>
         <!--created by ZHOU at 2014-02-13 20:56:34-->
         <activity
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -66,8 +73,8 @@
             android:name="com.zhou.program.MmseHelperActivity" android:screenOrientation="landscape"/>
         <!--created by ZHOU at 2014-03-24 16:46:37-->
         <!--created by ZHOU at 2014-03-28 15:08:49-->
-        <activity android:name=".CheckResultActivity"
+        <activity
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="landscape"/>
+            android:name=".CheckResultActivity" android:screenOrientation="landscape"/>
     </application>
 </manifest>

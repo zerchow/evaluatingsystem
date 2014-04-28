@@ -4,6 +4,11 @@
     <string name="app_name">神经专科医院床旁神经心理评估系统</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <!-- 入口界面 -->
+    <string name="patient_info_enter">患者信息一览</string>
+    <string name="synchronization_enter">信息同步</string>
+    <string name="backup_enter">信息备份</string>
+    <string name="exit_enter">退出系统</string>
     <!-- 患者信息界面 -->
     <string name="patient_info_in">患者信息录入</string>
     <string name="patient_name_tv">患者姓名</string>

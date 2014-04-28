@@ -46,7 +46,7 @@ public class MainActivity extends Activity
 	private Button patient_info_in;
 	private EvalSysDatabaseHelper dbHelper;
 	private String[] selector = new String[]{
-			"开始评估","查询评估结果","删除"
+			"查看患者详细信息","开始进行评估测验","查询患者评估结果","删除患者及其记录"
 	};
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
@@ -152,36 +152,14 @@ public class MainActivity extends Activity
 			this.dbHelper.close();
 	}
 
-	@Override
-	public void onBackPressed() 
-	{
-		// TODO 自动生成的方法存根
-		FinalUtil.getDialog(this, "结束", true)
-		.setMessage("确定要退出程序吗？")
-		.setPositiveButton("是",
-		new DialogInterface.OnClickListener() 
-		{
-			public void onClick(DialogInterface dialog, int which) 
-			{
-				finish();
-			}
-		}).create().show();
-	}
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) 
 	{
 		if(item.getItemId() == android.R.id.home)
 		{
-			FinalUtil.getDialog(this, "结束", true)
-			.setMessage("确定要退出程序吗？")
-			.setPositiveButton("是",
-			new DialogInterface.OnClickListener() 
-			{
-				public void onClick(DialogInterface dialog, int which) 
-				{
-					finish();
-				}
-			}).create().show();
+			this.finish();
+			return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -206,13 +184,17 @@ public class MainActivity extends Activity
 				{
 					if(pos == 0)
 					{
+						
+					}
+				    else if(pos == 1)
+					{
 						startEvaluation(hospital_id);
 					}
-					else if(pos == 1)
+					else if(pos == 2)
 					{
 						checkResult(hospital_id);
 					}
-					else if(pos == 2)
+					else if(pos == 3)
 					{
 						deletePatient(hospital_id);
 					}
@@ -305,54 +287,4 @@ public class MainActivity extends Activity
 		// TODO 自动生成的方法存根
 		super.onConfigurationChanged(newConfig);
 	}
-	//
-	private class SocketThread extends Thread
-	{
-		private final String IP = "";
-		private final int PORT = 0;
-		private final int BUFFER_LEN = 1024;
-		private byte[] buffer = new byte[this.BUFFER_LEN];
-		public void run()
-		{
-			Socket socket = null;
-			OutputStream out = null;
-			FileInputStream in = null;
-			try
-			{
-				socket = new Socket(this.IP, this.PORT);
-				out = socket.getOutputStream();
-				in = new FileInputStream(new File(
-						"/data/data/com.zhou.evaluatingsystem/databases/evalsys.db3"));
-				int length = 0;
-				while((length = in.read(this.buffer,0,this.BUFFER_LEN))
-						> 0)
-				{
-					out.write(buffer);
-				}
-				handler.sendEmptyMessage(FinalUtil.BACKUPDONE);
-			}
-			catch(Exception e)
-			{
-				e.printStackTrace();
-				handler.sendEmptyMessage(FinalUtil.BACKUPERROR);
-			}
-			finally
-			{
-				try 
-				{
-					if(socket != null)
-					{
-						out.flush();
-						out.close();
-						in.close();
-						socket.close();
-					}
-				} 
-				catch (Exception e) 
-				{
-					e.printStackTrace();
-				}
-			}
-		}//end of run
-	}//end of class
 }

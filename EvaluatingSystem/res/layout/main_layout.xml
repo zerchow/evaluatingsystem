@@ -1,23 +1,32 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:background="#ffffff"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity"
+    android:background="#ffffff">
     <Button 
         android:id="@+id/patient_info_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:text="@string/patient_info_in"
         android:textColor="@color/white_text"
         android:background="@drawable/btn_press"/>
-    <LinearLayout 
+    <ListView 
+        android:id="@+id/patient_manage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:groupIndicator="@drawable/head"
+        android:childDivider="@color/divider"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:paddingRight="3dp"
+        android:paddingLeft="4dp"
+        android:background="@drawable/patientinfo_back">
+    </ListView>
+    <!-- <LinearLayout 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -91,5 +100,5 @@
 	        android:paddingLeft="4dp"
 	        android:background="@drawable/patientinfo_back">
 	    </ListView>
-    </LinearLayout>
+    </LinearLayout> -->
 </LinearLayout>
