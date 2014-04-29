@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.Cursor;
 import android.support.v4.widget.CursorAdapter;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -43,7 +44,8 @@ import android.widget.Toast;
 public class MainActivity extends Activity 
 {
 	private ListView patient_manage;
-	private Button patient_info_in;
+	//private Button patient_info_in;
+	private TextView patient_num;
 	private EvalSysDatabaseHelper dbHelper;
 	private String[] selector = new String[]{
 			"查看患者详细信息","开始进行评估测验","查询患者评估结果","删除患者及其记录"
@@ -58,12 +60,14 @@ public class MainActivity extends Activity
 		//初始化变量
 		this.dbHelper = new EvalSysDatabaseHelper(this);
 		//初始化控件
-		this.patient_info_in = (Button)
-				findViewById(R.id.patient_info_in);
+		/*this.patient_info_in = (Button)
+				findViewById(R.id.patient_info_in);*/
+		this.patient_num = (TextView)
+				findViewById(R.id.patien_num);
 		this.patient_manage = (ListView)
 				findViewById(R.id.patient_manage);
 		//为控件指定监听器
-		this.patient_info_in.setOnClickListener(
+		/*this.patient_info_in.setOnClickListener(
 		new OnClickListener() 
 		{
 			public void onClick(View v) 
@@ -74,13 +78,19 @@ public class MainActivity extends Activity
 				startActivityForResult(intent, 
 						FinalUtil.ADD_REQUEST_CODE);
 			}
-		});
+		});*/
 		//为控件指定适配器
 		this.patient_manage.setAdapter(this.getAdapter());
 		this.patient_manage.setOnItemClickListener(
 				new PatientInfoItemClickListener());
 	}
-
+	public void addPatient(View view)
+	{
+		Intent intent = new Intent(this,
+				PatientInfoActivity.class);
+		startActivityForResult(intent, 
+				FinalUtil.ADD_REQUEST_CODE);
+	}
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent intent) 
 	{
@@ -95,8 +105,10 @@ public class MainActivity extends Activity
 			if(this.dbHelper.insertPatient(patient))
 			{
 				//this.patient_manage.setAdapter(this.getAdapter());
+				Cursor cursor = this.dbHelper.queryAllPatient();
+				this.patient_num.setText(cursor.getCount() + "");
 				((SimpleCursorAdapter)patient_manage.getAdapter())
-				.changeCursor(dbHelper.queryAllPatient());
+				.changeCursor(cursor);
 			}
 			else
 			{
@@ -107,9 +119,11 @@ public class MainActivity extends Activity
 	}
 	private SimpleCursorAdapter getAdapter()
 	{
+		Cursor cursor = this.dbHelper.queryAllPatient();
+		this.patient_num.setText(cursor.getCount() + "");
 		return new SimpleCursorAdapter(
 				this,R.layout.patientinfo_cell,
-				this.dbHelper.queryAllPatient(),
+				cursor,
 				new String[]{
 					"hospital_id","name","gender","diagnose"
 				},
@@ -216,8 +230,10 @@ public class MainActivity extends Activity
 				if(dbHelper.deletePatient(id))
 				{
 					//patient_manage.setAdapter(getAdapter());
+					Cursor cursor = dbHelper.queryAllPatient();
+					patient_num.setText(cursor.getCount() + "");
 					((SimpleCursorAdapter)patient_manage.getAdapter())
-					.changeCursor(dbHelper.queryAllPatient());
+					.changeCursor(cursor);
 				}
 			}
 		}).create().show();
