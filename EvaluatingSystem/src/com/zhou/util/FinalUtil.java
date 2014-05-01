@@ -1,5 +1,6 @@
 package com.zhou.util;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.Calendar;
 
@@ -27,9 +28,9 @@ public class FinalUtil implements Serializable
 	//数据库插入失败提示
 	public static final String ALREADY_EXIST = "已存在，插入失败";
 	//传输过程的消息
-	public static final int BACKUPING = 0x200;
+	public static final int BACKUP_FEEDBACK = 0x200;
 	//传输失败的消息
-	public static final int BACKUPERROR = 0x201;
+	public static final int SYNCHRONIZATION_FEEDBACK = 0x201;
 	//传输完成果的消息
 	public static final int BACKUPDONE = 0x202;
 	public static AlertDialog.Builder getDialog(Context context,
@@ -197,5 +198,16 @@ public class FinalUtil implements Serializable
 			return true;
 		else
 			return false;
+	}
+	//
+	public static final String clientDBFile = "/data/data/com.zhou.evaluatingsystem/databases/evalsys.db3";
+	public static final String serverDBFile = "/data/data/com.zhou.evaluatingsystem/evalsys.db3";
+	public static void deleteFile(String path)
+	{
+		File file = new File(path);
+		if(file.exists() && file.isFile())
+		{
+			file.delete();
+		}
 	}
 }

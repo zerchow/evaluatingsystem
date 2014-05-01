@@ -2,6 +2,8 @@ package com.zhou.socket;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ConnectException;
 import java.net.InetSocketAddress;
@@ -9,17 +11,15 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 
+import android.os.Bundle;
+import android.os.Message;
+
 import com.zhou.evaluatingsystem.EnterActivity;
 import com.zhou.util.FinalUtil;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.os.Message;
-import android.widget.Toast;
-
-public class BackupSocketThread extends Thread 
+public class SynchronizationSocketThread extends Thread 
 {
-	public BackupSocketThread(EnterActivity context,String IP)
+	public SynchronizationSocketThread(EnterActivity context,String IP)
 	{
 		this.context = context;
 		this.IP = IP;
@@ -33,28 +33,40 @@ public class BackupSocketThread extends Thread
 	{
 		Socket socket = null;
 		OutputStream out = null;
-		FileInputStream in = null;
+		InputStream in = null;
+		FileOutputStream fout = null;
 		try
 		{
 			socket = new Socket();
 			socket.connect(new InetSocketAddress(this.IP, this.PORT),
 					8000);
+			socket.setSoTimeout(8000);
 			this.sendMessage("连接成功");
 			out = socket.getOutputStream();
-			in = new FileInputStream(new File(
-					"/data/data/com.zhou.evaluatingsystem/databases/evalsys.db3"));
+			in = socket.getInputStream();
+			out.write("synchronization".getBytes());
+			FinalUtil.deleteFile(FinalUtil.serverDBFile);
+			fout = new FileOutputStream(new File(FinalUtil.serverDBFile));
+			byte[] buffer = new byte[1024];
 			int length = 0;
-			while((length = in.read(this.buffer,0,this.BUFFER_LEN))
-					> 0)
+			while((length = in.read(buffer, 0, 1024)) > 0)
 			{
-				out.write(buffer);
+				fout.write(buffer,0,length);
 			}
-			this.sendMessage("备份成功");
+			this.sendMessage("同步成功");
 		}
 		catch(SocketTimeoutException timeout_e)
 		{
-			//连接超时
-			this.sendMessage("连接超时");
+			if(socket.isConnected())
+			{
+				//同步超时
+				this.sendMessage("同步超时");
+			}
+			else
+			{
+				//连接超时
+				this.sendMessage("连接超时");
+			}
 		}
 		catch(UnknownHostException host_e)
 		{
@@ -80,6 +92,7 @@ public class BackupSocketThread extends Thread
 					out.flush();
 					out.close();
 					in.close();
+					fout.close();
 					socket.close();
 				}
 			} 
@@ -92,9 +105,9 @@ public class BackupSocketThread extends Thread
 	private void sendMessage(String str)
 	{
 		Message msg = new Message();
-		msg.what = FinalUtil.BACKUP_FEEDBACK;
+		msg.what = FinalUtil.SYNCHRONIZATION_FEEDBACK;
 		Bundle bundle = new Bundle();
-		bundle.putString("backup", str);
+		bundle.putString("synchronization", str);
 		msg.setData(bundle);
 		this.context.handler.sendMessage(msg);
 	}

@@ -22,6 +22,7 @@ import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.DigitalClock;
 import android.widget.EditText;
@@ -142,6 +143,7 @@ public class DigitSpanVisualActivity extends Activity
 				new InputFilter.LengthFilter(
 						this.digitSequence.length())
 		});
+		
 		AlertDialog.Builder dialog = 
 				FinalUtil.getDialog(this, "输入", false);
 		dialog.setView(view);

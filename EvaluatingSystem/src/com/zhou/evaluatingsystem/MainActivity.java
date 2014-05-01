@@ -140,15 +140,6 @@ public class MainActivity extends Activity
 		@Override
 		public void handleMessage(Message msg) 
 		{
-			switch(msg.what)
-			{
-			case FinalUtil.BACKUPING:
-				break;
-			case FinalUtil.BACKUPERROR:
-				break;
-			case FinalUtil.BACKUPDONE:
-				break;
-			}
 		}
 	};
 	/*@Override

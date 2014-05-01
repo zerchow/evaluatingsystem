@@ -14,14 +14,16 @@
 	        android:layout_height="wrap_content"
 	        android:gravity="center"
 	        android:layout_weight="3"
-	        android:text="@string/doctor_name_tv"/>
+	        android:text="@string/ip_name_tv"/>
 	    <EditText 
-	        android:id="@+id/doctor_name_et"
+	        android:id="@+id/ip_name_et"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:singleLine="true"
 	        android:layout_weight="1"
-	        android:hint="请输入医生姓名..."/>
+	        android:digits="0123456789."
+	        android:maxLength="15"
+	        android:hint="请输入服务器IP地址"/>
     </LinearLayout>
     <LinearLayout 
         android:layout_width="match_parent"
@@ -30,15 +32,15 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp">
         <Button 
-            android:id="@+id/doctorname_submit"
+            android:id="@+id/ip_name_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:text="确定"
+            android:text="连接"
             android:layout_weight="1"/>
         <Button 
-            android:id="@+id/doctorname_cancel"
+            android:id="@+id/ip_name_cancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"

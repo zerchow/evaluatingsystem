@@ -13,17 +13,26 @@ import java.net.SocketAddress;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 
+import com.zhou.socket.BackupSocketThread;
 import com.zhou.util.FinalUtil;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 /**
@@ -57,7 +66,150 @@ public class EnterActivity extends Activity
 		Intent intent = new Intent(this,MainActivity.class);
 		this.startActivity(intent);
 	}
-	public void exit_system(View view)
+	public void backupData(View v)
+	{
+		View view = getLayoutInflater().inflate(
+				R.layout.ip_layout,null);
+		final EditText ip_name_et = (EditText)
+				view.findViewById(R.id.ip_name_et);
+		ip_name_et.setInputType(EditorInfo.TYPE_CLASS_PHONE);
+		ip_name_et.addTextChangedListener
+		(new TextWatcher() 
+		{
+			int beforeChange;
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) 
+			{
+			}
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) 
+			{
+				this.beforeChange = s.length();
+			}
+			@Override
+			public void afterTextChanged(Editable s) 
+			{
+				String text = s.toString();
+				int length = text.length();
+				//允许删除
+				if(this.beforeChange - length == 1)
+				{
+					return;
+				}
+				//过滤字符
+				if("1234567890.".indexOf(
+						text.substring(length - 1,length)) < 0)
+				{
+					ip_name_et.setText(text.substring(0, length - 1));
+					ip_name_et.setSelection(length - 1);
+					return;
+				}
+				String[] result = text.split("\\.");
+				if(length == 0)
+				{
+					//空字符无需判断
+					return;
+				}
+				else if(length == 1)
+				{
+					if(text.equals("."))
+					{
+						//第一个字符不为点
+						ip_name_et.setText("");
+						return;
+					}
+				}
+				else
+				{
+					//不允许连续输入两个点
+					//总共不超过3个点
+					if(text.charAt(length - 1) == '.')
+					{
+						if(text.charAt(length - 2) == '.'
+								||result.length == 4)
+						{
+							ip_name_et.setText(text.substring(0, length - 1));
+							ip_name_et.setSelection(length - 1);
+							return;
+						}
+					}
+				}
+				//不允许0开头
+				if(Integer.valueOf(result[result.length - 1]) == 0)
+				{
+					if(result.length == 1)
+					{
+						ip_name_et.setText("");
+						return;
+					}
+					else
+					{
+						int lastDot = text.lastIndexOf(".");
+						ip_name_et.setText(text.substring(0,
+								lastDot));
+						return;
+					}
+				}
+				//超过255，设为最大255
+				boolean shouldChange = false;
+				StringBuilder builder = new StringBuilder();
+				for(int i = 0; i < result.length; i ++)
+				{
+					int value = Integer.valueOf(result[i]);
+					if(value > 255)
+					{
+						result[i] = "255";
+						shouldChange = true;
+					}
+					builder.append(result[i]);
+					builder.append(".");
+				}
+				if(shouldChange)
+				{
+					ip_name_et.setText(builder.toString());
+					ip_name_et.setSelection(builder.length());
+				}
+			}//end of function
+		});
+		Button ip_submit = (Button)
+				view.findViewById(R.id.ip_name_submit);
+		Button ip_cancel = (Button)
+				view.findViewById(R.id.ip_name_cancel);
+		AlertDialog.Builder subdialog = 
+				FinalUtil.getDialog(this, "请输入服务器IP地址", false);
+		subdialog.setView(view);
+		final AlertDialog showDialog = subdialog.create();
+		ip_submit.setOnClickListener(
+		new OnClickListener() 
+		{
+			public void onClick(View v) 
+			{
+				if(TextUtils.isEmpty(
+						ip_name_et.getText()))
+				{
+					return;
+				}
+				else
+				{
+					BackupSocketThread backup = new BackupSocketThread(
+							EnterActivity.this,ip_name_et.getText().toString());
+					backup.start();
+					showDialog.dismiss();
+				}
+			}
+		});
+		ip_cancel.setOnClickListener(
+		new OnClickListener() 
+		{
+			public void onClick(View v) 
+			{
+				showDialog.dismiss();
+			}
+		});
+		showDialog.show();
+	}
+	public void exitSystem(View view)
 	{
 		this.dealExit();
 	}
@@ -103,11 +255,19 @@ public class EnterActivity extends Activity
 		@Override
 		public void handleMessage(Message msg) 
 		{
+			Bundle bundle = msg.getData();
+			String str = "";
 			switch(msg.what)
 			{
-			case FinalUtil.BACKUPING:
+			case FinalUtil.BACKUP_FEEDBACK:
+				str = bundle.getString("backup");
+				Toast.makeText(EnterActivity.this, str,
+						Toast.LENGTH_LONG).show();
 				break;
-			case FinalUtil.BACKUPERROR:
+			case FinalUtil.SYNCHRONIZATION_FEEDBACK:
+				str = bundle.getString("synchronization");
+				Toast.makeText(EnterActivity.this, str,
+						Toast.LENGTH_LONG).show();
 				break;
 			case FinalUtil.BACKUPDONE:
 				break;

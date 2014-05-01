@@ -152,5 +152,7 @@
     <string name="btett">倒序TE_TT</string>
     <string name="bml">倒序ML</string>
     <string name="bms">倒序MS</string>
+    <!-- ip -->
+    <string name="ip_name_tv">服务器IP地址</string>
 
 </resources>
