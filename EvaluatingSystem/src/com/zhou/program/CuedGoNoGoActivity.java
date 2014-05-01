@@ -33,6 +33,7 @@ public class CuedGoNoGoActivity extends Activity
 	private CuedThread cuedThread;
 	private boolean stop;
 	private boolean kill = false;
+	private boolean userTouch;
 	private final int cueWhiteFixation = 800;
 	private final int cueWhite = 500;
 	private final int targetTimeout = 1000;
@@ -49,6 +50,10 @@ public class CuedGoNoGoActivity extends Activity
 	private Cued cuedDao = new Cued();
 	private int correct = 0;
 	private int error = 0;
+	public void setUserTouch()
+	{
+		this.userTouch = true;
+	}
 	private Handler handler = new Handler()
 	{
 		public void handleMessage(Message msg) 
@@ -89,6 +94,7 @@ public class CuedGoNoGoActivity extends Activity
 				//开始
 				if(!stop && cued.hasNext())
 				{
+					userTouch = false;
 					cuedThread = 
 							new CuedThread(cued.getNext());
 					cuedThread.start();
@@ -185,7 +191,12 @@ public class CuedGoNoGoActivity extends Activity
 				Thread.sleep(soa);
 				handler.sendEmptyMessage(FinalUtil.CUEDCOLORFRAMEMSG);
 				cued.createUser();
-				Thread.sleep(targetTimeout);
+				for(int i = 0; i < 5; i ++)
+				{
+					Thread.sleep(targetTimeout / 5);
+					if(userTouch)
+						break;
+				}
 				cued.cancelUser();
 				handler.sendEmptyMessage(FinalUtil.CUEDWHITEMSG);
 				if(cued.result())

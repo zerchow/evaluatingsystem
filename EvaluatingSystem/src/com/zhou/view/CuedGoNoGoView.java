@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import com.zhou.program.CuedGoNoGoActivity;
 import com.zhou.util.FinalUtil;
 
 import android.content.Context;
@@ -214,6 +215,7 @@ public class CuedGoNoGoView extends View
 		{
 		case MotionEvent.ACTION_DOWN:
 			this.isUserDo = true;
+			((CuedGoNoGoActivity)this.context).setUserTouch();
 			break;
 		case MotionEvent.ACTION_MOVE:
 			break;

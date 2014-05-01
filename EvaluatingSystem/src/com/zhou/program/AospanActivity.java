@@ -536,7 +536,7 @@ public class AospanActivity extends Activity
 				isUserCanSolving = true;
 				for(int i = 0; i < 25; i ++)
 				{
-					Thread.sleep(200);
+					Thread.sleep(MathInterval / 25);
 					if(isSolving)
 						break;
 				}
