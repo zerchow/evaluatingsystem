@@ -189,7 +189,7 @@ public class MainActivity extends Activity
 				{
 					if(pos == 0)
 					{
-						
+						patientDetail(hospital_id);
 					}
 				    else if(pos == 1)
 					{
@@ -207,6 +207,14 @@ public class MainActivity extends Activity
 			});
 			builder.create().show();
 		}
+	}
+	private void patientDetail(String id)
+	{
+		Intent intent = new Intent(this, PatientDetailActivity.class);
+		Bundle bundle = new Bundle();
+		bundle.putString("id", id);
+		intent.putExtras(bundle);
+		this.startActivity(intent);
 	}
 	//
 	private void deletePatient(final String id)

@@ -66,8 +66,25 @@ public class EnterActivity extends Activity
 		Intent intent = new Intent(this,MainActivity.class);
 		this.startActivity(intent);
 	}
+	private boolean checkNetwork()
+	{
+		if(FinalUtil.hasNetwork(this))
+		{
+			FinalUtil.getQuickDialog(this, "无网络接入").create().show();
+			return false;
+		}
+		if(FinalUtil.isWifi(this))
+		{
+			FinalUtil.getQuickDialog(this, "无WiFi接入").create().show();
+			return false;
+		}
+		return true;
+	}
 	public void backupData(View v)
 	{
+		if(! this.checkNetwork())
+			return;
+		
 		View view = getLayoutInflater().inflate(
 				R.layout.ip_layout,null);
 		final EditText ip_name_et = (EditText)
@@ -163,7 +180,8 @@ public class EnterActivity extends Activity
 						shouldChange = true;
 					}
 					builder.append(result[i]);
-					builder.append(".");
+					if(i <= 2)
+						builder.append(".");
 				}
 				if(shouldChange)
 				{

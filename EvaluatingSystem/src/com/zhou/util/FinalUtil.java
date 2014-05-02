@@ -50,6 +50,22 @@ public class FinalUtil implements Serializable
 		dialog.setCancelable(false);
 		return dialog;
 	}
+	public static AlertDialog.Builder getQuickDialog(Context context,
+			String content)
+	{
+		AlertDialog.Builder dialog = 
+				new AlertDialog.Builder(context)
+		.setTitle("提示")
+		.setMessage(content)
+		.setPositiveButton("确定", new DialogInterface.OnClickListener()
+		{
+			
+			public void onClick(DialogInterface dialog, int which) 
+			{
+			}
+		}).setCancelable(false);
+		return dialog;
+	}
 	//汉诺塔消息
 	public static final int MOVEMSG = 0x203;//当前步数消息
 	public static final int TIMEMSG = 0x204;//所做次数消息
