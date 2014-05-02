@@ -94,6 +94,8 @@ public class TowerOfHanoiView extends View
 	private boolean isScanOnly;
 	//是否正式测试
 	private static boolean isFormalTest;
+	//
+	private boolean isFirstTouch = true;
 	//初始化块
 	{
 		this.tops = new Point[]{
@@ -246,6 +248,7 @@ public class TowerOfHanoiView extends View
 		{
 			TowerOfHanoiView.isFormalTest = true;
 			this.sendEmptyMessage(FinalUtil.FORMALTESTMSG);
+			this.isFirstTouch = true;
 		}
 		int temp = TowerOfHanoiView.currentProblem * this.PILLAR_NUM
 				% this.DATAS.length;
@@ -394,6 +397,11 @@ public class TowerOfHanoiView extends View
 		{
 		case MotionEvent.ACTION_DOWN:
 			this.isMoving = this.isFingerTouch(finger_x, finger_y);
+			if(this.isMoving && this.isFirstTouch)
+			{
+				this.isFirstTouch = false;
+				this.sendEmptyMessage(FinalUtil.FIRSTMSG);
+			}
 			break;
 		case MotionEvent.ACTION_MOVE:
 			break;

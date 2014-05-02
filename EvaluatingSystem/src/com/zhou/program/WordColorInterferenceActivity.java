@@ -4,6 +4,7 @@
 package com.zhou.program;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -66,14 +67,17 @@ public class WordColorInterferenceActivity extends Activity
 	//当前线程
 	private Interference currentThread;
 	//
-	private long startTime;
-	private long endTime;
 	private int correctNums;
 	private int wrongNums;
 	//用户是否可以操作
 	private boolean isUserCanDo;
 	//
 	private Word word = new Word();
+	//
+	private Calendar startTime = null;
+	private Calendar endTime = null;
+	private Calendar startTime1 = null;
+	private Calendar endTime1 = null;
 	/* (non-Javadoc)
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
 	 */
@@ -105,9 +109,11 @@ public class WordColorInterferenceActivity extends Activity
 		this.choose_ll = (LinearLayout)findViewById(
 				R.id.choose_ll);
 		this.stop = false;
-		this.startTime = System.currentTimeMillis();
 		this.correctNums = this.wrongNums = 0;
 		this.isUserCanDo = false;
+		//
+		//
+		this.startTime = Calendar.getInstance();
 		//
 		FinalUtil.getDialog(this, "欢迎", false)
 		.setMessage(this.help1)
@@ -157,6 +163,9 @@ public class WordColorInterferenceActivity extends Activity
 	{
 		if(this.isUserCanDo)
 		{
+			if(this.startTime1 == null)
+				this.startTime1 = Calendar.getInstance();
+			
 			String text = ((TextView)view).getText().toString();
 			if(getColor(text) == this.currentColor)
 				this.handler.sendEmptyMessage(
@@ -215,9 +224,7 @@ public class WordColorInterferenceActivity extends Activity
 				stop = false;
 				while(currentThread != null &&
 						currentThread.isAlive())
-				{
-					
-				}
+				{}
 				currentThread = new Interference();
 				currentThread.start();
 				break;
@@ -237,54 +244,43 @@ public class WordColorInterferenceActivity extends Activity
 				correctNums ++;
 				Toast.makeText(WordColorInterferenceActivity.this,
 						"正确",Toast.LENGTH_SHORT).show();
-				if(currentTime == MAXTIME)
-				{
-					stop = true;
-					endTime = System.currentTimeMillis();
-					String tip = "用时：" + (endTime - startTime) + 
-							"ms\n正确：" + correctNums + 
-							"\n错误：" + wrongNums;
-					FinalUtil.getDialog(WordColorInterferenceActivity.this,
-							"结束",false)
-					.setMessage(tip)
-					.setPositiveButton("确定",
-					new DialogInterface.OnClickListener() 
-					{
-						public void onClick(DialogInterface dialog, int which) 
-						{
-							stopTheGame();
-						}
-					}).create().show();
-				}
+				dealResult();
 				break;
 			case FinalUtil.INTERFERENCEWRONG:
 				wrongNums ++;
 				Toast.makeText(WordColorInterferenceActivity.this,
 						"错误",Toast.LENGTH_SHORT).show();
-				if(currentTime == MAXTIME)
-				{
-					stop = true;
-					endTime = System.currentTimeMillis();
-					String tip = "用时：" + (endTime - startTime) + 
-							"ms\n正确：" + correctNums + 
-							"\n错误：" + wrongNums;
-					FinalUtil.getDialog(WordColorInterferenceActivity.this,
-							"结束",false)
-					.setMessage(tip)
-					.setPositiveButton("确定",
-					new DialogInterface.OnClickListener() 
-					{
-						public void onClick(DialogInterface dialog, int which) 
-						{
-							stopTheGame();
-						}
-					}).create().show();
-				}
+				dealResult();
 				break;
 			}
 			super.handleMessage(msg);
 		}
 	};
+	private void dealResult()
+	{
+		if(this.currentTime == this.MAXTIME)
+		{
+			//totalmillisecond,totalstarttime,totalendtime,date
+			//starttime,endtime,millisecond
+			this.endTime = this.endTime1 = Calendar.getInstance();
+			stop = true;
+			/*String tip = "用时：" + (endTime - startTime) + 
+					"ms\n正确：" + correctNums + 
+					"\n错误：" + wrongNums;*/
+			String tip = "";
+			FinalUtil.getDialog(WordColorInterferenceActivity.this,
+					"结束",false)
+			.setMessage(tip)
+			.setPositiveButton("确定",
+			new DialogInterface.OnClickListener() 
+			{
+				public void onClick(DialogInterface dialog, int which) 
+				{
+					stopTheGame();
+				}
+			}).create().show();
+		}
+	}
 	private void stopTheGame()
 	{
 		this.word.setEvaluate_endtime(FinalUtil.getCurrentTimeString());

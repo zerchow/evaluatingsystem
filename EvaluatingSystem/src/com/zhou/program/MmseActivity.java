@@ -3,6 +3,8 @@
  */
 package com.zhou.program;
 
+import java.util.Calendar;
+
 import com.zhou.dao.Mmse;
 import com.zhou.evaluatingsystem.R;
 import com.zhou.util.FinalUtil;
@@ -43,6 +45,9 @@ public class MmseActivity extends Activity
 	private Spinner mmse_pro_12;
 	private Button mmse_pro_submit;
 	private String[] mmse_choose;
+	//
+	private Calendar startTime = null;
+	private Calendar endTime = null;
 	//
 	private Mmse mmse = new Mmse();
 	@Override
@@ -85,6 +90,8 @@ public class MmseActivity extends Activity
 		this.mmse_pro_submit.setOnClickListener(
 				new submitListener());
 		//
+		this.startTime = Calendar.getInstance();
+		//
 		this.mmse.setEvaluate_date(FinalUtil.getCurrentDateString());
 		this.mmse.setEvaluate_starttime(FinalUtil.getCurrentTimeString());
 	}
@@ -104,7 +111,9 @@ public class MmseActivity extends Activity
 			score += mmse_pro_09.getRating();
 			score += mmse_pro_10.getRating();
 			score += mmse_pro_11.getRating();
-			
+			//totalmillisecond,totalstarttime,totalendtime,date
+			endTime = Calendar.getInstance();
+			//
 			String awareness_state = mmse_choose[
 					mmse_pro_12.getSelectedItemPosition()];
 			mmse.setAwareness_state(awareness_state);

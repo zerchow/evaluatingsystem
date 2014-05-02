@@ -3,6 +3,8 @@
  */
 package com.zhou.program;
 
+import java.util.Calendar;
+
 import com.zhou.dao.Wisconsin;
 import com.zhou.evaluatingsystem.R;
 import com.zhou.logic.WisconsinCardSorting;
@@ -53,6 +55,22 @@ public class WisconsinActivity extends Activity {
 	private SlidingDrawer tip;
 	private WisconsinCardSorting wisconsin;
 	private Wisconsin wis = new Wisconsin();
+	//
+	private Calendar startTime = null;
+	private Calendar endTime = null;
+	private Calendar startTime1 = null;
+	private Calendar endTime1 = null;
+	private Calendar startTime2 = null;
+	private Calendar endTime2 = null;
+	private Calendar startTime3 = null;
+	private Calendar endTime3 = null;
+	private Calendar startTime4 = null;
+	private Calendar endTime4 = null;
+	private Calendar startTime5 = null;
+	private Calendar endTime5 = null;
+	private Calendar startTime6 = null;
+	private Calendar endTime6 = null;
+	//
 	@SuppressWarnings("deprecation")
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
@@ -82,6 +100,7 @@ public class WisconsinActivity extends Activity {
 		});
 		if(savedInstanceState == null)
 		{
+			this.startTime = Calendar.getInstance();
 			FinalUtil.getDialog(this, "欢迎", false)
 			.setMessage(this.help1)
 			.setPositiveButton("确定",
@@ -201,6 +220,25 @@ public class WisconsinActivity extends Activity {
 	};
 	private void stopTheGame()
 	{
+		//totalmillisecond,totalstarttime,totalendtime,date
+		//starttime1,endtime1,starttime2,endtime2,starttime3,endtime3,
+		//starttime4,endtime4,starttime5,endtime5,starttime6,endtime6,
+		//millisecond1,millisecond2,millisecond3,millisecond4,
+		//millisecond5,millisecond6
+		this.endTime = Calendar.getInstance();
+		this.startTime1 = this.wisconsin.getStartTime1();
+		this.endTime1 = this.wisconsin.getEndTime1();
+		this.startTime2 = this.wisconsin.getStartTime2();
+		this.endTime2 = this.wisconsin.getEndTime2();
+		this.startTime3 = this.wisconsin.getStartTime3();
+		this.endTime3 = this.wisconsin.getEndTime3();
+		this.startTime4 = this.wisconsin.getStartTime4();
+		this.endTime4 = this.wisconsin.getEndTime4();
+		this.startTime5 = this.wisconsin.getStartTime5();
+		this.endTime5 = this.wisconsin.getEndTime5();
+		this.startTime6 = this.wisconsin.getStartTime6();
+		this.endTime6 = this.wisconsin.getEndTime6();
+		//
 		String[] colors = this.wisconsin.getColors();
 		String[] forms = this.wisconsin.getForms();
 		String[] numbers = this.wisconsin.getNumbers();

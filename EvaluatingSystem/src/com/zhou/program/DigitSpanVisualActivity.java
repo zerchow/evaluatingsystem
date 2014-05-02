@@ -3,6 +3,8 @@
  */
 package com.zhou.program;
 
+import java.util.Calendar;
+
 import com.zhou.dao.Visual;
 import com.zhou.evaluatingsystem.R;
 import com.zhou.logic.DigitSpan;
@@ -81,6 +83,18 @@ public class DigitSpanVisualActivity extends Activity
 	private boolean kill = false;
 	//
 	private Visual visual = new Visual();
+	//
+	private Calendar startTime = null;
+	private Calendar endTime = null;
+	private Calendar startTime1 = null;
+	private Calendar endTime1 = null;
+	private Calendar startTime2 = null;
+	private Calendar endTime2 = null;
+	private Calendar startTime3 = null;
+	private Calendar endTime3 = null;
+	private Calendar startTime4 = null;
+	private Calendar endTime4 = null;
+	//
 	/* (non-Javadoc)
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
 	 */
@@ -94,6 +108,8 @@ public class DigitSpanVisualActivity extends Activity
 		//初始化
 		this.digitshow_tv = (TextView)findViewById(R.id.digitshow_tv);
 		this.digitSpan = new DigitSpan(this);
+		//
+		this.startTime = Calendar.getInstance();
 		//
 		FinalUtil.getDialog(this, "欢迎", false)
 		.setMessage(this.help1)
@@ -173,10 +189,12 @@ public class DigitSpanVisualActivity extends Activity
 		String tip = "";
 		if(this.currentType == FinalUtil.DS_FORWARD)
 		{
+			this.endTime1 = Calendar.getInstance();
 			tip = this.help3 + this.help4;
 		}
 		else if(this.currentType == FinalUtil.DS_BACKWARD)
 		{
+			this.endTime3 = Calendar.getInstance();
 			tip = this.help3 + this.help5;
 		}
 		FinalUtil.getDialog(this, "欢迎", false)
@@ -213,24 +231,32 @@ public class DigitSpanVisualActivity extends Activity
 				digitSpan.getSequence();
 				break;
 			case FinalUtil.DS_FORWARDPRAC:
+				if(startTime1 == null)
+					startTime1 = Calendar.getInstance();
 				currentType = bundle.getInt("type");
 				digitSequence = bundle.getString("sequence");
 				dsvshowThread = new DsvshowThread(digitSequence);
 				dsvshowThread.start();
 				break;
 			case FinalUtil.DS_BACKWARDPRAC:
+				if(startTime3 == null)
+					startTime3 = Calendar.getInstance();
 				currentType = bundle.getInt("type");
 				digitSequence = bundle.getString("sequence");
 				dsvshowThread = new DsvshowThread(digitSequence);
 				dsvshowThread.start();
 				break;
 			case FinalUtil.DS_FORWARDTEST:
+				if(startTime2 == null)
+					startTime2 = Calendar.getInstance();
 				currentType = bundle.getInt("type");
 				digitSequence = bundle.getString("sequence");
 				dsvshowThread = new DsvshowThread(digitSequence);
 				dsvshowThread.start();
 				break;
 			case FinalUtil.DS_BACKWARDTEST:
+				if(startTime4 == null)
+					startTime4 = Calendar.getInstance();
 				currentType = bundle.getInt("type");
 				digitSequence = bundle.getString("sequence");
 				dsvshowThread = new DsvshowThread(digitSequence);
@@ -252,6 +278,7 @@ public class DigitSpanVisualActivity extends Activity
 				startTest();
 				break;
 			case FinalUtil.DS_FORWARDEND:
+				endTime2 = Calendar.getInstance();
 				int fteml = bundle.getInt("fteml");
 				int fml = bundle.getInt("fml");
 				FinalUtil.getDialog(DigitSpanVisualActivity.this,
@@ -280,6 +307,7 @@ public class DigitSpanVisualActivity extends Activity
 				}).create().show();
 				break;
 			case FinalUtil.DS_BACKWARDEND:
+				endTime4 = Calendar.getInstance();
 				int bteml = bundle.getInt("bteml");
 				int bml = bundle.getInt("bml");
 				FinalUtil.getDialog(DigitSpanVisualActivity.this,
@@ -318,6 +346,10 @@ public class DigitSpanVisualActivity extends Activity
 				finish();
 			}
 		}).create().show();*/
+		//totalmillisecond,totalstarttime,totalendtime,date
+		//starttime1,endtime1,starttime2,endtime2,
+		//starttime3,endtime3,starttime4,endtime4,
+		//millisecond1,millisecond2,millisecond3,millisecond4
 		this.visual.setEvaluate_endtime(FinalUtil.getCurrentTimeString());
 		this.visual.setForward_TE_ML(result[0]);
 		this.visual.setForward_TE_TT(result[1]);

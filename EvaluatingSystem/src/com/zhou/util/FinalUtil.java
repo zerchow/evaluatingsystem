@@ -31,8 +31,6 @@ public class FinalUtil implements Serializable
 	public static final int BACKUP_FEEDBACK = 0x200;
 	//传输失败的消息
 	public static final int SYNCHRONIZATION_FEEDBACK = 0x201;
-	//传输完成果的消息
-	public static final int BACKUPDONE = 0x202;
 	public static AlertDialog.Builder getDialog(Context context,
 			String content,boolean hasCancel)
 	{
@@ -67,6 +65,7 @@ public class FinalUtil implements Serializable
 		return dialog;
 	}
 	//汉诺塔消息
+	public static final int FIRSTMSG = 0x202;//第一次点击
 	public static final int MOVEMSG = 0x203;//当前步数消息
 	public static final int TIMEMSG = 0x204;//所做次数消息
 	public static final int PROMSG = 0x205;//关卡消息
@@ -182,9 +181,31 @@ public class FinalUtil implements Serializable
 				+ calendar.get(Calendar.MINUTE) + ":"
 				+ calendar.get(Calendar.SECOND);
 	}
+	public static String getCurrentTimeString(Calendar calendar)
+	{
+		if(calendar == null)
+			return "";
+		return calendar.get(Calendar.HOUR_OF_DAY) + ":"
+				+ calendar.get(Calendar.MINUTE) + ":"
+				+ calendar.get(Calendar.SECOND);
+	}
+	public static long getTimeDiff(Calendar cal1,Calendar cal2)
+	{
+		if(cal1 == null || cal2 == null)
+			return 0;
+		return cal2.getTimeInMillis() - cal1.getTimeInMillis();
+	}
 	public static String getCurrentDateString()
 	{
 		Calendar calendar = Calendar.getInstance();
+		return calendar.get(Calendar.YEAR) + "-"
+				+ (calendar.get(Calendar.MONTH) + 1) + "-"
+				+ calendar.get(Calendar.DATE);
+	}
+	public static String getCurrentDateString(Calendar calendar)
+	{
+		if(calendar == null)
+			return "";
 		return calendar.get(Calendar.YEAR) + "-"
 				+ (calendar.get(Calendar.MONTH) + 1) + "-"
 				+ calendar.get(Calendar.DATE);
@@ -195,7 +216,7 @@ public class FinalUtil implements Serializable
 		ConnectivityManager con = (ConnectivityManager)
 				context.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo info = con.getActiveNetworkInfo();
-		if(info != null || info.isAvailable())
+		if(info != null && info.isAvailable())
 		{
 			return true;
 		}

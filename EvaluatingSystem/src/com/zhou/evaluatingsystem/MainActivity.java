@@ -220,6 +220,7 @@ public class MainActivity extends Activity
 	private void deletePatient(final String id)
 	{
 		FinalUtil.getDialog(this,"确定要删除吗？",true)
+		.setMessage("删除患者信息以及评估记录！")
 		.setPositiveButton("是",
 				new DialogInterface.OnClickListener() 
 		{		

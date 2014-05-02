@@ -3,6 +3,8 @@
  */
 package com.zhou.program;
 
+import java.util.Calendar;
+
 import com.zhou.dao.Hanoi;
 import com.zhou.evaluatingsystem.R;
 import com.zhou.util.FinalUtil;
@@ -42,6 +44,13 @@ public class TowerOfHanoiActivity extends Activity
 	private TextSwitcher problem_tv;
 	private TextSwitcher time_tv;
 	private Hanoi hanoi = new Hanoi();
+	//
+	private Calendar startTime = null;
+	private Calendar endTime = null;
+	private Calendar pracStartTime = null;
+	private Calendar pracEndTime = null;
+	private Calendar testStartTime = null;
+	private Calendar testEndTime = null;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
@@ -81,6 +90,9 @@ public class TowerOfHanoiActivity extends Activity
 		if(savedInstanceState == null)
 		{
 			this.scanonlyHanoi.initScan();
+			//
+			this.startTime = Calendar.getInstance();
+			//
 			//欢迎界面
 			FinalUtil.getDialog(this, "欢迎", false)
 			.setView(getLayoutInflater().inflate(R.layout.hanoi_intro_1, null))
@@ -124,6 +136,12 @@ public class TowerOfHanoiActivity extends Activity
 			super.handleMessage(msg);
 			switch(msg.what)
 			{
+			case FinalUtil.FIRSTMSG:
+				if(pracStartTime == null)
+					pracStartTime = Calendar.getInstance();
+				else if(testStartTime == null)
+					testStartTime = Calendar.getInstance();
+				break;
 			case FinalUtil.MOVEMSG:
 				//更新当前步数
 				int moves = msg.getData().getInt("moves");
@@ -146,6 +164,10 @@ public class TowerOfHanoiActivity extends Activity
 				break;
 			case FinalUtil.ENDMSG:
 				//游戏已结束
+				//totalmillisecond,totalstarttime,totalendtime,date
+				//score,starttime1,endtime1,starttime2,endtime2,millisecond1,millisecond2
+				testEndTime = endTime = Calendar.getInstance();
+				//
 				hanoi.setEvaluate_endtime(FinalUtil.getCurrentTimeString());
 				int totalSocre = msg.getData().getInt("end");
 				hanoi.setScore(totalSocre);
@@ -215,6 +237,7 @@ public class TowerOfHanoiActivity extends Activity
 				break;
 			case FinalUtil.FORMALTESTMSG:
 				//实践已结束，正式测试开始
+				pracEndTime = Calendar.getInstance();
 				View view = getLayoutInflater().inflate(
 						R.layout.hanoi_intro_2,null);
 				((TextView)

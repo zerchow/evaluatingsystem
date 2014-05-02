@@ -25,6 +25,7 @@
     <string name="patient_info_submit">确定提交</string>
     <!-- 评估界面 -->
     <string name="doctor_name_tv">医生姓名</string>
+    <string name="patient_num">患者数量：</string>
     <!-- 首页患者操作 -->
     <string name="patientinfo_id">ID</string>
     <string name="patientinfo_name">姓名</string>
@@ -154,5 +155,11 @@
     <string name="bms">倒序MS</string>
     <!-- ip -->
     <string name="ip_name_tv">服务器IP地址</string>
+    <!-- detail -->
+    <string name="modifyInfo">修改患者信息</string>
+    <string name="allResult">全部评估结果</string>
+    <string name="resultTable">评估结果报表</string>
+    <string name="evaluateNow">进行评估测验</string>
+    <string name="deleteInfo">删除患者信息</string>
 
 </resources>

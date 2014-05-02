@@ -66,14 +66,14 @@ public class EnterActivity extends Activity
 		Intent intent = new Intent(this,MainActivity.class);
 		this.startActivity(intent);
 	}
-	private boolean checkNetwork()
+	private boolean hasNetwork()
 	{
-		if(FinalUtil.hasNetwork(this))
+		if(!FinalUtil.hasNetwork(this))
 		{
 			FinalUtil.getQuickDialog(this, "无网络接入").create().show();
 			return false;
 		}
-		if(FinalUtil.isWifi(this))
+		if(!FinalUtil.isWifi(this))
 		{
 			FinalUtil.getQuickDialog(this, "无WiFi接入").create().show();
 			return false;
@@ -82,7 +82,7 @@ public class EnterActivity extends Activity
 	}
 	public void backupData(View v)
 	{
-		if(! this.checkNetwork())
+		if(! this.hasNetwork())
 			return;
 		
 		View view = getLayoutInflater().inflate(
@@ -163,9 +163,13 @@ public class EnterActivity extends Activity
 					else
 					{
 						int lastDot = text.lastIndexOf(".");
-						ip_name_et.setText(text.substring(0,
-								lastDot));
-						return;
+						if(length - 1 - lastDot == 2)
+						{
+							ip_name_et.setText(text.substring(0,
+									length - 1));
+							ip_name_et.setSelection(length - 1);
+							return;
+						}
 					}
 				}
 				//超过255，设为最大255
@@ -187,7 +191,9 @@ public class EnterActivity extends Activity
 				{
 					ip_name_et.setText(builder.toString());
 					ip_name_et.setSelection(builder.length());
+					return;
 				}
+				//还有缺点，可以把光标移到前面，随便添加0
 			}//end of function
 		});
 		Button ip_submit = (Button)
@@ -286,8 +292,6 @@ public class EnterActivity extends Activity
 				str = bundle.getString("synchronization");
 				Toast.makeText(EnterActivity.this, str,
 						Toast.LENGTH_LONG).show();
-				break;
-			case FinalUtil.BACKUPDONE:
 				break;
 			}
 		}

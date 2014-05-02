@@ -5,6 +5,7 @@ package com.zhou.program;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import com.zhou.dao.Aos;
 import com.zhou.evaluatingsystem.R;
@@ -149,6 +150,18 @@ public class AospanActivity extends Activity
 	private boolean kill = false;
 	//
 	private Aos aos = new Aos();
+	//
+	private Calendar startTime = null;
+	private Calendar endTime = null;
+	private Calendar startTime1 = null;
+	private Calendar endTime1 = null;
+	private Calendar startTime2 = null;
+	private Calendar endTime2 = null;
+	private Calendar startTime3 = null;
+	private Calendar endTime3 = null;
+	private Calendar startTime4 = null;
+	private Calendar endTime4 = null;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
@@ -166,6 +179,9 @@ public class AospanActivity extends Activity
 		//
 		this.getDataThread = new GetDataThread();
 		this.getDataThread.start();
+		//
+		this.startTime = Calendar.getInstance();
+		//
  		//对话框
 		FinalUtil.getDialog(this, "欢迎", false)
 		.setMessage(this.help1)
@@ -239,6 +255,8 @@ public class AospanActivity extends Activity
 		isUserCanSolving = true;
 		if(isFirstPracMath)
 		{
+			this.endTime1 = Calendar.getInstance();
+			
 			autoNum = 1;
 			targetTotal = 0;
 			targetCorrect = 0;
@@ -258,6 +276,7 @@ public class AospanActivity extends Activity
 					{
 						public void onClick(DialogInterface dialog, int which) 
 						{
+							startTime2 = Calendar.getInstance();
 							setTip();
 							showMath();
 						}
@@ -285,6 +304,9 @@ public class AospanActivity extends Activity
 		targetMath_judgeList = (ArrayList<Boolean>) bundle.getSerializable("pracbothmath_judge");
 		if(isFirstPracBoth)
 		{
+			//
+			this.endTime2 = Calendar.getInstance();
+			//
 			autoNum = 1;
 			FinalUtil.getDialog(AospanActivity.this,
 					"结果",false)
@@ -314,6 +336,7 @@ public class AospanActivity extends Activity
 							{
 								public void onClick(DialogInterface dialog, int which) 
 								{
+									startTime3 = Calendar.getInstance();
 									showPracBoth();
 									setTip();
 								}
@@ -345,6 +368,9 @@ public class AospanActivity extends Activity
 		targetMath_judgeList = (ArrayList<Boolean>) bundle.getSerializable("testbothmath_judge");
 		if(isFirstTestBoth)
 		{
+			//
+			endTime3 = Calendar.getInstance();
+			//
 			autoNum = 1;
 			FinalUtil.getDialog(AospanActivity.this,
 					"欢迎",false)
@@ -354,6 +380,7 @@ public class AospanActivity extends Activity
 			{
 				public void onClick(DialogInterface dialog, int which) 
 				{
+					startTime4 = Calendar.getInstance();
 					setTip();
 					showPracBoth();
 				}
@@ -385,6 +412,9 @@ public class AospanActivity extends Activity
 			switch(msg.what)
 			{
 			case FinalUtil.PRACLETTERMSG:
+				if(startTime1 == null)
+					startTime1 = Calendar.getInstance();
+				
 				totalNum = bundle.getInt("total");
 				autoNum ++;
 				setTip();
@@ -427,6 +457,12 @@ public class AospanActivity extends Activity
 				}
 				else
 				{
+					//totalmillisecond,totalstarttime,totalendtime,date
+					//starttime1,endtime1,starttime2,endtime2,
+					//starttime3,endtime3,starttime4,endtime4,
+					//millisecond1,millisecond2,millisecond3,millisecond4
+					endTime = endTime4 = Calendar.getInstance();
+					//
 					String end = "OSPAN Absolute Score: " + OSPAN_ABSOLUTE_SCORE + 
 							"\nOSPAN Total Correct: " + OSPAN_TOTAL_CORRECT + 
 							"\nMath Total Errors: " + MATH_TOTAL_ERRORS + 

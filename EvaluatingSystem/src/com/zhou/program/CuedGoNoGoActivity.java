@@ -3,6 +3,7 @@
  */
 package com.zhou.program;
 
+import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -50,6 +51,12 @@ public class CuedGoNoGoActivity extends Activity
 	private Cued cuedDao = new Cued();
 	private int correct = 0;
 	private int error = 0;
+	//
+	private Calendar startTime = null;
+	private Calendar endTime = null;
+	private Calendar startTime1 = null;
+	private Calendar endTime1 = null;
+	//
 	public void setUserTouch()
 	{
 		this.userTouch = true;
@@ -101,6 +108,10 @@ public class CuedGoNoGoActivity extends Activity
 				}
 				else if(!stop)
 				{
+					//totalmillisecond,totalstarttime,totalendtime,date
+					//starttime,endtime,millisecond
+					endTime = endTime1 = Calendar.getInstance();
+					//
 					FinalUtil.getDialog(CuedGoNoGoActivity.this,
 							"结束",false)
 					.setMessage(help2)
@@ -140,6 +151,9 @@ public class CuedGoNoGoActivity extends Activity
 		//初始化
 		this.cued = (CuedGoNoGoView)findViewById(R.id.cued);
 		
+		//
+		this.startTime = Calendar.getInstance();
+		//
 		FinalUtil.getDialog(this, "欢迎", false)
 		.setMessage(this.help1)
 		.setPositiveButton("开始",
@@ -161,6 +175,9 @@ public class CuedGoNoGoActivity extends Activity
 		try 
 		{
 			Thread.sleep(500);
+			//
+			this.startTime1 = Calendar.getInstance();
+			//
 			this.handler.sendEmptyMessage(FinalUtil.CUEDSTART);
 		} 
 		catch (InterruptedException e) 

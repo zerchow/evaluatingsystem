@@ -7,12 +7,18 @@ import com.zhou.sqlite.EvalSysDatabaseHelper;
 import com.zhou.util.FinalUtil;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 /**
@@ -61,6 +67,79 @@ public class PatientDetailActivity extends Activity
 		}
 		cursor.close();
 	}
+	//
+	private String getId()
+	{
+		return this.detail_id.getText().toString();
+	}
+	//
+	public void allResult(View view)
+	{
+		
+	}
+	//
+	public void resultTable(View view)
+	{
+		Intent intent = new Intent(this,
+				CheckResultActivity.class);
+		Bundle bundle = new Bundle();
+		bundle.putString("id", this.getId());
+		intent.putExtras(bundle);
+		this.startActivity(intent);
+	}
+	//
+	public void modifyInfo(View view)
+	{
+		
+	}
+	//
+	public void evaluateNow(View v)
+	{
+		View view = getLayoutInflater().inflate(
+				R.layout.doctorinfo_layout,null);
+		final EditText doctor_name_et = (EditText)
+				view.findViewById(R.id.doctor_name_et);
+		Button doctorname_submit = (Button)
+				view.findViewById(R.id.doctorname_submit);
+		Button doctorname_cancel = (Button)
+				view.findViewById(R.id.doctorname_cancel);
+		AlertDialog.Builder subdialog = 
+				FinalUtil.getDialog(this, "请输入医生信息", false);
+		subdialog.setView(view);
+		final AlertDialog showDialog = subdialog.create();
+		doctorname_submit.setOnClickListener(
+		new OnClickListener() 
+		{
+			public void onClick(View v) 
+			{
+				if(TextUtils.isEmpty(
+						doctor_name_et.getText()))
+				{
+					return;
+				}
+				else
+				{
+					Intent intent = new Intent(
+							PatientDetailActivity.this,EvaluationActivity.class);
+					Bundle datas = new Bundle();
+					datas.putString("doctorname", doctor_name_et.getText().toString());
+					datas.putString("id", getId());
+					intent.putExtras(datas);
+					startActivity(intent);
+					showDialog.dismiss();
+				}
+			}
+		});
+		doctorname_cancel.setOnClickListener(
+		new OnClickListener() 
+		{
+			public void onClick(View v) 
+			{
+				showDialog.dismiss();
+			}
+		});
+		showDialog.show();
+	}
 	@Override
 	public void onBackPressed() 
 	{
@@ -81,5 +160,14 @@ public class PatientDetailActivity extends Activity
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	//
+	@Override
+	protected void onDestroy() 
+	{
+		super.onDestroy();
+		//关闭数据库
+		if(this.dbHelper != null)
+			this.dbHelper.close();
 	}
 }

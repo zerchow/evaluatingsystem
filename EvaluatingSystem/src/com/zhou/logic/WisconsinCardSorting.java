@@ -1,5 +1,7 @@
 package com.zhou.logic;
 
+import java.util.Calendar;
+
 import com.zhou.evaluatingsystem.R;
 import com.zhou.program.WisconsinActivity;
 import com.zhou.util.FinalUtil;
@@ -82,6 +84,19 @@ public class WisconsinCardSorting
 	private String[] colors;
 	private String[] forms;
 	private String[] numbers;
+	//
+	private Calendar startTime1 = null;
+	private Calendar endTime1 = null;
+	private Calendar startTime2 = null;
+	private Calendar endTime2 = null;
+	private Calendar startTime3 = null;
+	private Calendar endTime3 = null;
+	private Calendar startTime4 = null;
+	private Calendar endTime4 = null;
+	private Calendar startTime5 = null;
+	private Calendar endTime5 = null;
+	private Calendar startTime6 = null;
+	private Calendar endTime6 = null;
 	//Activity上下文
 	private WisconsinActivity context;
 	//构造函数
@@ -154,6 +169,10 @@ public class WisconsinCardSorting
 				//累积颜色的次数
 				this.colorTimes ++;
 				this.isGaming = true;
+				if(this.startTime1 == null)
+					this.startTime1 = Calendar.getInstance();
+				else if(this.startTime4 == null)
+					this.startTime4 = Calendar.getInstance();
 			}
 			if(this.CHOOSE_COLORS[choose] == 
 				this.TEST_COLORS[this.currentProblem])
@@ -170,6 +189,10 @@ public class WisconsinCardSorting
 					this.currentProblem = 0;
 					this.currentCorrectStreak = 0;
 					this.isGaming = false;
+					if(this.endTime1 == null)
+						this.endTime1 = Calendar.getInstance();
+					else if(this.endTime4 == null)
+						this.endTime4 = Calendar.getInstance();
 				}
 				else
 				{
@@ -195,6 +218,10 @@ public class WisconsinCardSorting
 				//累积类型的次数
 				this.formTimes ++;
 				this.isGaming = true;
+				if(this.startTime2 == null)
+					this.startTime2 = Calendar.getInstance();
+				else if(this.startTime5 == null)
+					this.startTime5 = Calendar.getInstance();
 			}
 			if(this.CHOOSE_FORMS[choose] == 
 				this.TEST_FORMS[this.currentProblem])
@@ -211,6 +238,10 @@ public class WisconsinCardSorting
 					this.currentProblem = 0;
 					this.currentCorrectStreak = 0;
 					this.isGaming = false;
+					if(this.endTime2 == null)
+						this.endTime2 = Calendar.getInstance();
+					else if(this.endTime5 == null)
+						this.endTime5 = Calendar.getInstance();
 				}
 				else
 				{
@@ -236,6 +267,10 @@ public class WisconsinCardSorting
 				//累积数量的次数
 				this.numberTimes ++;
 				this.isGaming = true;
+				if(this.startTime3 == null)
+					this.startTime3 = Calendar.getInstance();
+				else if(this.startTime6 == null)
+					this.startTime6 = Calendar.getInstance();
 			}
 			if(choose_presented == 
 				this.TEST_NUMS[this.currentProblem])
@@ -252,6 +287,10 @@ public class WisconsinCardSorting
 					this.currentProblem = 0;
 					this.currentCorrectStreak = 0;
 					this.isGaming = false;
+					if(this.endTime3 == null)
+						this.endTime6 = Calendar.getInstance();
+					else if(this.endTime3 == null)
+						this.endTime6 = Calendar.getInstance();
 				}
 				else
 				{
@@ -293,6 +332,8 @@ public class WisconsinCardSorting
 				"next",
 				this.TESTPICS[this.currentProblem]);
 	}
+	//
+	
 	//发送消息
 	private void sendMessage(int what,String key,int data)
 	{
@@ -302,6 +343,54 @@ public class WisconsinCardSorting
 		bundle.putInt(key, data);
 		msg.setData(bundle);
 		this.context.handle.sendMessage(msg);
+	}
+	public Calendar getStartTime1() 
+	{
+		return startTime1;
+	}
+	public Calendar getEndTime1() 
+	{
+		return endTime1;
+	}
+	public Calendar getStartTime2() 
+	{
+		return startTime2;
+	}
+	public Calendar getEndTime2() 
+	{
+		return endTime2;
+	}
+	public Calendar getStartTime3() 
+	{
+		return startTime3;
+	}
+	public Calendar getEndTime3() 
+	{
+		return endTime3;
+	}
+	public Calendar getStartTime4() 
+	{
+		return startTime4;
+	}
+	public Calendar getEndTime4() 
+	{
+		return endTime4;
+	}
+	public Calendar getStartTime5() 
+	{
+		return startTime5;
+	}
+	public Calendar getEndTime5() 
+	{
+		return endTime5;
+	}
+	public Calendar getStartTime6() 
+	{
+		return startTime6;
+	}
+	public Calendar getEndTime6() 
+	{
+		return endTime6;
 	}
 	//发送空消息
 	private void sendEmptyMessage(int what)
