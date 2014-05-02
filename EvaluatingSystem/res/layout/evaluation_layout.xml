@@ -147,7 +147,9 @@
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:text="@string/type_1_1"
-		        android:textSize="20sp"/>
+		        android:textSize="20sp"
+		        android:textColor="@color/white_text"
+		        android:background="@drawable/btn_press"/>
 		    
 		    <TextView 
 		        android:id="@+id/frontal_test"
@@ -161,31 +163,41 @@
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:text="@string/type_2_1"
-		        android:textSize="20sp"/>
+		        android:textSize="20sp"
+		        android:textColor="@color/white_text"
+		        android:background="@drawable/btn_press"/>
 		    <Button
 		        android:id="@+id/frontal_test_linecontact"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:text="@string/type_2_2"
-		        android:textSize="20sp"/>
+		        android:textSize="20sp"
+		        android:textColor="@color/white_text"
+		        android:background="@drawable/btn_press"/>
 		    <Button
 		        android:id="@+id/frontal_test_wisconsin"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:text="@string/type_2_3"
-		        android:textSize="20sp"/>
+		        android:textSize="20sp"
+		        android:textColor="@color/white_text"
+		        android:background="@drawable/btn_press"/>
 		    <Button
 		        android:id="@+id/frontal_test_cued"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:text="@string/type_2_4"
-		        android:textSize="20sp"/>
+		        android:textSize="20sp"
+		        android:textColor="@color/white_text"
+		        android:background="@drawable/btn_press"/>
 		    <Button
 		        android:id="@+id/frontal_test_wordcolor"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:text="@string/type_2_5"
-		        android:textSize="20sp"/>
+		        android:textSize="20sp"
+		        android:textColor="@color/white_text"
+		        android:background="@drawable/btn_press"/>
 		    
 		    <TextView 
 		        android:id="@+id/memory_test"
@@ -199,19 +211,25 @@
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:text="@string/type_3_1"
-		        android:textSize="20sp"/>
+		        android:textSize="20sp"
+		        android:textColor="@color/white_text"
+		        android:background="@drawable/btn_press"/>
 		    <Button
 		        android:id="@+id/memory_test_digitspanvisual"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:text="@string/type_3_2"
-		        android:textSize="20sp"/>
+		        android:textSize="20sp"
+		        android:textColor="@color/white_text"
+		        android:background="@drawable/btn_press"/>
 		    <Button
 		        android:id="@+id/memory_test_digitspanacoustic"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:text="@string/type_3_3"
-		        android:textSize="20sp"/>
+		        android:textSize="20sp"
+		        android:textColor="@color/white_text"
+		        android:background="@drawable/btn_press"/>
 		</LinearLayout>
 	</ScrollView>
 </LinearLayout>
