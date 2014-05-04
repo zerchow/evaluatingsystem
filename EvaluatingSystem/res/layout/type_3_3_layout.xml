@@ -24,6 +24,11 @@
         android:layout_height="wrap_content"
         android:gravity="center"/>
     <TextView 
+        android:id="@+id/type_3_3_eval_millisecond"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
         android:id="@+id/type_3_3_fteml"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
@@ -60,6 +65,66 @@
         android:gravity="center"/>
     <TextView 
         android:id="@+id/type_3_3_bms"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_3_3_pracf_start"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_3_3_pracf_end"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_3_3_pracf_millisecond"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_3_3_testf_start"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_3_3_testf_end"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_3_3_testf_millisecond"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_3_3_pracb_start"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_3_3_pracb_end"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_3_3_pracb_millisecond"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_3_3_testb_start"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_3_3_testb_end"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_3_3_testb_millisecond"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:gravity="center"/>

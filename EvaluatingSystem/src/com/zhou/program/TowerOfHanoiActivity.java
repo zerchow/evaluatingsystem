@@ -5,8 +5,8 @@ package com.zhou.program;
 
 import java.util.Calendar;
 
-import com.zhou.dao.Hanoi;
 import com.zhou.evaluatingsystem.R;
+import com.zhou.model.Hanoi;
 import com.zhou.util.FinalUtil;
 import com.zhou.view.TowerOfHanoiView;
 

@@ -24,12 +24,32 @@
         android:layout_height="wrap_content"
         android:gravity="center"/>
     <TextView 
+        android:id="@+id/type_2_5_eval_millisecond"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
         android:id="@+id/type_2_5_correct"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:gravity="center"/>
     <TextView 
         android:id="@+id/type_2_5_error"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_5_test_start"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_5_test_end"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_5_test_millisecond"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:gravity="center"/>

@@ -5,9 +5,9 @@ package com.zhou.program;
 
 import java.util.Calendar;
 
-import com.zhou.dao.Visual;
 import com.zhou.evaluatingsystem.R;
 import com.zhou.logic.DigitSpan;
+import com.zhou.model.Visual;
 import com.zhou.util.FinalUtil;
 
 import android.app.Activity;

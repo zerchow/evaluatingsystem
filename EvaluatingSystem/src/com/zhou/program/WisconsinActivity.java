@@ -5,9 +5,9 @@ package com.zhou.program;
 
 import java.util.Calendar;
 
-import com.zhou.dao.Wisconsin;
 import com.zhou.evaluatingsystem.R;
 import com.zhou.logic.WisconsinCardSorting;
+import com.zhou.model.Wisconsin;
 import com.zhou.util.FinalUtil;
 
 import android.app.Activity;

@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.zhou.dao.Patient;
+import com.zhou.model.Patient;
 import com.zhou.sqlite.EvalSysDatabaseHelper;
 import com.zhou.util.FinalUtil;
 
@@ -125,7 +125,7 @@ public class MainActivity extends Activity
 				this,R.layout.patientinfo_cell,
 				cursor,
 				new String[]{
-					"hospital_id","name","gender","diagnose"
+					"_id","name","gender","diagnose"
 				},
 				new int[]{
 					R.id.patientinfo_cell_id,

@@ -7,8 +7,8 @@ import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.zhou.dao.Cued;
 import com.zhou.evaluatingsystem.R;
+import com.zhou.model.Cued;
 import com.zhou.util.FinalUtil;
 import com.zhou.view.CuedGoNoGoView;
 

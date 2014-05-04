@@ -40,32 +40,43 @@
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/doctor"/>
+				            android:text="@string/doctor"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_date"/>
+				            android:text="@string/eval_date"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_start"/>
+				            android:text="@string/eval_start"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_end"/>
+				            android:text="@string/eval_end"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/score"/>
+				            android:text="@string/eval_millisecond"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/state"/>
+				            android:text="@string/score"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/state"
+		        			android:textStyle="bold"/>
 				    </LinearLayout>
 				    <com.zhou.view.SpecialListView 
 				        android:id="@+id/type_1_1_list"
@@ -107,27 +118,74 @@
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/doctor"/>
+				            android:text="@string/doctor"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_date"/>
+				            android:text="@string/eval_date"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_start"/>
+				            android:text="@string/eval_start"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_end"/>
+				            android:text="@string/eval_end"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/score"/>
+				            android:text="@string/eval_millisecond"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/score"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/prac_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/prac_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/prac_millisecond"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/test_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/test_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/test_millisecond"
+		        			android:textStyle="bold"/>
 				    </LinearLayout>
 				    <com.zhou.view.SpecialListView 
 				        android:id="@+id/type_2_1_list"
@@ -169,32 +227,80 @@
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/doctor"/>
+				            android:text="@string/doctor"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_date"/>
+				            android:text="@string/eval_date"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_start"/>
+				            android:text="@string/eval_start"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_end"/>
+				            android:text="@string/eval_end"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/simpleaerror"/>
+				            android:text="@string/eval_millisecond"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/simpleberror"/>
+				            android:text="@string/simpleaerror"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/simpleberror"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/simplea_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/simplea_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/simplea_millisecond"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/simpleb_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/simpleb_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/simpleb_millisecond"
+		        			android:textStyle="bold"/>
 				    </LinearLayout>
 				    <com.zhou.view.SpecialListView 
 				        android:id="@+id/type_2_2_list"
@@ -236,52 +342,176 @@
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/doctor"/>
+				            android:text="@string/doctor"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_date"/>
+				            android:text="@string/eval_date"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_start"/>
+				            android:text="@string/eval_start"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_end"/>
+				            android:text="@string/eval_end"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/color1"/>
+				            android:text="@string/eval_millisecond"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/form1"/>
+				            android:text="@string/color1"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/number1"/>
+				            android:text="@string/color1_start"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/color2"/>
+				            android:text="@string/color1_end"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/form2"/>
+				            android:text="@string/color1_millisecond"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/number2"/>
+				            android:text="@string/form1"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/form1_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/form1_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/form1_millisecond"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/number1"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/number1_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/number1_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/number1_millisecond"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/color2"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/color2_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/color2_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/color2_millisecond"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/form2"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/form2_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/form2_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/form2_millisecond"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/number2"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/number2_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/number2_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/number2_millisecond"
+		        			android:textStyle="bold"/>
 				    </LinearLayout>
 				    <com.zhou.view.SpecialListView 
 				        android:id="@+id/type_2_3_list"
@@ -323,32 +553,62 @@
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/doctor"/>
+				            android:text="@string/doctor"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_date"/>
+				            android:text="@string/eval_date"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_start"/>
+				            android:text="@string/eval_start"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_end"/>
+				            android:text="@string/eval_end"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/correct"/>
+				            android:text="@string/eval_millisecond"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/error"/>
+				            android:text="@string/correct"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/error"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/test_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/test_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/test_millisecond"
+		        			android:textStyle="bold"/>
 				    </LinearLayout>
 				    <com.zhou.view.SpecialListView 
 				        android:id="@+id/type_2_4_list"
@@ -390,32 +650,62 @@
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/doctor"/>
+				            android:text="@string/doctor"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_date"/>
+				            android:text="@string/eval_date"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_start"/>
+				            android:text="@string/eval_start"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_end"/>
+				            android:text="@string/eval_end"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/correct"/>
+				            android:text="@string/eval_millisecond"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/error"/>
+				            android:text="@string/correct"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/error"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/test_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/test_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/test_millisecond"
+		        			android:textStyle="bold"/>
 				    </LinearLayout>
 				    <com.zhou.view.SpecialListView 
 				        android:id="@+id/type_2_5_list"
@@ -457,47 +747,134 @@
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/doctor"/>
+				            android:text="@string/doctor"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_date"/>
+				            android:text="@string/eval_date"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_start"/>
+				            android:text="@string/eval_start"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_end"/>
+				            android:text="@string/eval_end"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/ospanabsolute"/>
+				            android:text="@string/eval_millisecond"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/ospancorrect"/>
+				            android:text="@string/ospanabsolute"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/matherror"/>
+				            android:text="@string/ospancorrect"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/mathspeed"/>
+				            android:text="@string/matherror"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/mathaccuracy"/>
+				            android:text="@string/mathspeed"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/mathaccuracy"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracletter_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracletter_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracletter_millisecond"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracmath_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracmath_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracmath_millisecond"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracboth_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracboth_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracboth_millisecond"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/testboth_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/testboth_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/testboth_millisecond"
+		        			android:textStyle="bold"/>
 				    </LinearLayout>
 				    <com.zhou.view.SpecialListView 
 				        android:id="@+id/type_3_1_list"
@@ -539,62 +916,152 @@
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/doctor"/>
+				            android:text="@string/doctor"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_date"/>
+				            android:text="@string/eval_date"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_start"/>
+				            android:text="@string/eval_start"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_end"/>
+				            android:text="@string/eval_end"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/fteml"/>
+				            android:text="@string/eval_millisecond"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/ftett"/>
+				            android:text="@string/fteml"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/fml"/>
+				            android:text="@string/ftett"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/fms"/>
+				            android:text="@string/fml"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/bteml"/>
+				            android:text="@string/fms"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/btett"/>
+				            android:text="@string/bteml"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/bml"/>
+				            android:text="@string/btett"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/bms"/>
+				            android:text="@string/bml"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/bms"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracf_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracf_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracf_millisecond"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/testf_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/testf_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/testf_millisecond"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracb_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracb_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracb_millisecond"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/testb_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/testb_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/testb_millisecond"
+		        			android:textStyle="bold"/>
 				    </LinearLayout>
 				    <com.zhou.view.SpecialListView 
 				        android:id="@+id/type_3_2_list"
@@ -636,62 +1103,152 @@
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/doctor"/>
+				            android:text="@string/doctor"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_date"/>
+				            android:text="@string/eval_date"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_start"/>
+				            android:text="@string/eval_start"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/eval_end"/>
+				            android:text="@string/eval_end"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/fteml"/>
+				            android:text="@string/eval_millisecond"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/ftett"/>
+				            android:text="@string/fteml"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/fml"/>
+				            android:text="@string/ftett"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/fms"/>
+				            android:text="@string/fml"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/bteml"/>
+				            android:text="@string/fms"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/btett"/>
+				            android:text="@string/bteml"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/bml"/>
+				            android:text="@string/btett"
+		        			android:textStyle="bold"/>
 				        <TextView 
 				            android:layout_width="100dp"
 				            android:layout_height="wrap_content"
 				            android:gravity="center"
-				            android:text="@string/bms"/>
+				            android:text="@string/bml"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/bms"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracf_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracf_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracf_millisecond"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/testf_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/testf_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/testf_millisecond"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracb_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracb_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/pracb_millisecond"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/testb_start"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/testb_end"
+		        			android:textStyle="bold"/>
+				        <TextView 
+				            android:layout_width="100dp"
+				            android:layout_height="wrap_content"
+				            android:gravity="center"
+				            android:text="@string/testb_millisecond"
+		        			android:textStyle="bold"/>
 				    </LinearLayout>
 				    <com.zhou.view.SpecialListView 
 				        android:id="@+id/type_3_3_list"

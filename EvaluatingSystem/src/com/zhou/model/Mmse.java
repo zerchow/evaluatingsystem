@@ -1,16 +1,25 @@
-package com.zhou.dao;
+package com.zhou.model;
 
 import java.io.Serializable;
 
-public class Line implements Serializable
+public class Mmse implements Serializable 
 {
 	private String hospital_id;
 	private String doctor_name;
 	private String evaluate_date;
 	private String evaluate_starttime;
 	private String evaluate_endtime;
-	private int simple_a_error;
-	private int simple_b_error;
+	private long evaluate_millisecond;
+	public long getEvaluate_millisecond() 
+	{
+		return evaluate_millisecond;
+	}
+	public void setEvaluate_millisecond(long evaluate_millisecond) 
+	{
+		this.evaluate_millisecond = evaluate_millisecond;
+	}
+	private int score;
+	private String awareness_state;
 	public String getHospital_id() 
 	{
 		return hospital_id;
@@ -51,20 +60,20 @@ public class Line implements Serializable
 	{
 		this.evaluate_endtime = evaluate_endtime;
 	}
-	public int getSimple_a_error() 
+	public int getScore() 
 	{
-		return simple_a_error;
+		return score;
 	}
-	public void setSimple_a_error(int simple_a_error) 
+	public void setScore(int score) 
 	{
-		this.simple_a_error = simple_a_error;
+		this.score = score;
 	}
-	public int getSimple_b_error() 
+	public String getAwareness_state() 
 	{
-		return simple_b_error;
+		return awareness_state;
 	}
-	public void setSimple_b_error(int simple_b_error) 
+	public void setAwareness_state(String awareness_state) 
 	{
-		this.simple_b_error = simple_b_error;
+		this.awareness_state = awareness_state;
 	}
 }

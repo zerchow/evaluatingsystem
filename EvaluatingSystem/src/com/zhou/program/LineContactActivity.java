@@ -6,8 +6,8 @@ package com.zhou.program;
 
 import java.util.Calendar;
 
-import com.zhou.dao.Line;
 import com.zhou.evaluatingsystem.R;
+import com.zhou.model.Line;
 import com.zhou.util.FinalUtil;
 import com.zhou.view.LineContactView;
 

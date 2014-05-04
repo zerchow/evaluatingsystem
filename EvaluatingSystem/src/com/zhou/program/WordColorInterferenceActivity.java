@@ -9,8 +9,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import com.zhou.dao.Word;
 import com.zhou.evaluatingsystem.R;
+import com.zhou.model.Word;
 import com.zhou.util.FinalUtil;
 
 import android.app.Activity;

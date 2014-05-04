@@ -24,7 +24,27 @@
         android:layout_height="wrap_content"
         android:gravity="center"/>
     <TextView 
+        android:id="@+id/type_2_3_eval_millisecond"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
         android:id="@+id/type_2_3_color1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_3_color1_start"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_3_color1_end"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_3_color1_millisecond"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:gravity="center"/>
@@ -34,7 +54,37 @@
         android:layout_height="wrap_content"
         android:gravity="center"/>
     <TextView 
+        android:id="@+id/type_2_3_form1_start"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_3_form1_end"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_3_form1_millisecond"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
         android:id="@+id/type_2_3_number1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_3_number1_start"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_3_number1_end"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_3_number1_millisecond"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:gravity="center"/>
@@ -44,12 +94,57 @@
         android:layout_height="wrap_content"
         android:gravity="center"/>
     <TextView 
+        android:id="@+id/type_2_3_color2_start"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_3_color2_end"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_3_color2_millisecond"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
         android:id="@+id/type_2_3_form2"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:gravity="center"/>
     <TextView 
+        android:id="@+id/type_2_3_form2_start"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_3_form2_end"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_3_form2_millisecond"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
         android:id="@+id/type_2_3_number2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_3_number2_start"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_3_number2_end"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
+        android:id="@+id/type_2_3_number2_millisecond"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:gravity="center"/>

@@ -24,6 +24,11 @@
         android:layout_height="wrap_content"
         android:gravity="center"/>
     <TextView 
+        android:id="@+id/type_1_1_eval_millisecond"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
+    <TextView 
         android:id="@+id/type_1_1_score"
         android:layout_width="100dp"
         android:layout_height="wrap_content"

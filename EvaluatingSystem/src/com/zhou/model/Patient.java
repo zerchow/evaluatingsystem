@@ -1,4 +1,4 @@
-package com.zhou.dao;
+package com.zhou.model;
 import java.io.Serializable;
 
 public class Patient implements Serializable 
@@ -6,7 +6,7 @@ public class Patient implements Serializable
 	private String name;
 	private String gender;
 	private String birth;
-	private String hospital_id;
+	private String _id;
 	private String diagnose;
 	public String getName() 
 	{
@@ -32,13 +32,13 @@ public class Patient implements Serializable
 	{
 		this.birth = birth;
 	}
-	public String getHospital_id() 
+	public String get_id() 
 	{
-		return hospital_id;
+		return _id;
 	}
-	public void setHospital_id(String hospital_id) 
+	public void set_id(String _id) 
 	{
-		this.hospital_id = hospital_id;
+		this._id = _id;
 	}
 	public String getDiagnose() 
 	{

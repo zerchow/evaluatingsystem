@@ -6,9 +6,9 @@ package com.zhou.program;
 import java.io.IOException;
 import java.util.Calendar;
 
-import com.zhou.dao.Acoustic;
 import com.zhou.evaluatingsystem.R;
 import com.zhou.logic.DigitSpan;
+import com.zhou.model.Acoustic;
 import com.zhou.util.FinalUtil;
 
 import android.app.Activity;

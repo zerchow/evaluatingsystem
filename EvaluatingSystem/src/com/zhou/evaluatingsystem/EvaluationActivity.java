@@ -3,15 +3,15 @@
  */
 package com.zhou.evaluatingsystem;
 
-import com.zhou.dao.Acoustic;
-import com.zhou.dao.Aos;
-import com.zhou.dao.Cued;
-import com.zhou.dao.Hanoi;
-import com.zhou.dao.Line;
-import com.zhou.dao.Mmse;
-import com.zhou.dao.Visual;
-import com.zhou.dao.Wisconsin;
-import com.zhou.dao.Word;
+import com.zhou.model.Acoustic;
+import com.zhou.model.Aos;
+import com.zhou.model.Cued;
+import com.zhou.model.Hanoi;
+import com.zhou.model.Line;
+import com.zhou.model.Mmse;
+import com.zhou.model.Visual;
+import com.zhou.model.Wisconsin;
+import com.zhou.model.Word;
 import com.zhou.program.AospanActivity;
 import com.zhou.program.CuedGoNoGoActivity;
 import com.zhou.program.DigitSpanAcousticActivity;

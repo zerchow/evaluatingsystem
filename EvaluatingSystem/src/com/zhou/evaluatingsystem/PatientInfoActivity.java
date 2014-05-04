@@ -5,7 +5,7 @@ package com.zhou.evaluatingsystem;
 
 import java.util.Calendar;
 
-import com.zhou.dao.Patient;
+import com.zhou.model.Patient;
 import com.zhou.util.FinalUtil;
 
 import android.app.Activity;
@@ -112,7 +112,7 @@ public class PatientInfoActivity extends Activity
 		}
 		//验证合法时
 		this.patient.setName(patient_name);
-		this.patient.setHospital_id(patient_id);
+		this.patient.set_id(patient_id);
 		this.patient.setGender(patient_gender);
 		this.patient.setDiagnose(patient_diagnose);
 		this.patient.setBirth(birth_year + "-"

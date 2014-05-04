@@ -1,4 +1,4 @@
-package com.zhou.dao;
+package com.zhou.model;
 
 import java.io.Serializable;
 
@@ -9,6 +9,10 @@ public class Word implements Serializable
 	private String evaluate_date;
 	private String evaluate_starttime;
 	private String evaluate_endtime;
+	private long evaluate_millisecond;
+	private String starttime;
+	private String endtime;
+	private long millisecond;
 	private int correct;
 	private int error;
 	public String getHospital_id() 
@@ -66,5 +70,37 @@ public class Word implements Serializable
 	public void setError(int error) 
 	{
 		this.error = error;
+	}
+	public long getEvaluate_millisecond() 
+	{
+		return evaluate_millisecond;
+	}
+	public void setEvaluate_millisecond(long evaluate_millisecond) 
+	{
+		this.evaluate_millisecond = evaluate_millisecond;
+	}
+	public String getStarttime() 
+	{
+		return starttime;
+	}
+	public void setStarttime(String starttime) 
+	{
+		this.starttime = starttime;
+	}
+	public String getEndtime() 
+	{
+		return endtime;
+	}
+	public void setEndtime(String endtime) 
+	{
+		this.endtime = endtime;
+	}
+	public long getMillisecond() 
+	{
+		return millisecond;
+	}
+	public void setMillisecond(long millisecond) 
+	{
+		this.millisecond = millisecond;
 	}
 }

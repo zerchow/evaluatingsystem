@@ -1,16 +1,20 @@
-package com.zhou.dao;
+package com.zhou.model;
 
 import java.io.Serializable;
 
-public class Mmse implements Serializable 
+public class Cued implements Serializable
 {
 	private String hospital_id;
 	private String doctor_name;
 	private String evaluate_date;
 	private String evaluate_starttime;
 	private String evaluate_endtime;
-	private int score;
-	private String awareness_state;
+	private long evaluate_millisecond;
+	private String starttime;
+	private String endtime;
+	private long millisecond;
+	private int correct;
+	private int error;
 	public String getHospital_id() 
 	{
 		return hospital_id;
@@ -51,20 +55,52 @@ public class Mmse implements Serializable
 	{
 		this.evaluate_endtime = evaluate_endtime;
 	}
-	public int getScore() 
+	public int getCorrect() 
 	{
-		return score;
+		return correct;
 	}
-	public void setScore(int score) 
+	public void setCorrect(int correct) 
 	{
-		this.score = score;
+		this.correct = correct;
 	}
-	public String getAwareness_state() 
+	public int getError() 
 	{
-		return awareness_state;
+		return error;
 	}
-	public void setAwareness_state(String awareness_state) 
+	public void setError(int error) 
 	{
-		this.awareness_state = awareness_state;
+		this.error = error;
+	}
+	public long getEvaluate_millisecond() 
+	{
+		return evaluate_millisecond;
+	}
+	public void setEvaluate_millisecond(long evaluate_millisecond) 
+	{
+		this.evaluate_millisecond = evaluate_millisecond;
+	}
+	public String getStarttime() 
+	{
+		return starttime;
+	}
+	public void setStarttime(String starttime) 
+	{
+		this.starttime = starttime;
+	}
+	public String getEndtime() 
+	{
+		return endtime;
+	}
+	public void setEndtime(String endtime) 
+	{
+		this.endtime = endtime;
+	}
+	public long getMillisecond() 
+	{
+		return millisecond;
+	}
+	public void setMillisecond(long millisecond) 
+	{
+		this.millisecond = millisecond;
 	}
 }

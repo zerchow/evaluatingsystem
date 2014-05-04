@@ -7,9 +7,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import com.zhou.dao.Aos;
 import com.zhou.evaluatingsystem.R;
 import com.zhou.logic.Aospan;
+import com.zhou.model.Aos;
 import com.zhou.util.FinalUtil;
 
 import android.app.Activity;
