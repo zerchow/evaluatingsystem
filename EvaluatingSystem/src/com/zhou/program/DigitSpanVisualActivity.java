@@ -125,8 +125,6 @@ public class DigitSpanVisualActivity extends Activity
 				{
 					public void onClick(DialogInterface dialog, int which) 
 					{
-						visual.setEvaluate_date(FinalUtil.getCurrentDateString());
-						visual.setEvaluate_starttime(FinalUtil.getCurrentTimeString());
 						start();
 					}
 				}).create().show();
@@ -307,7 +305,7 @@ public class DigitSpanVisualActivity extends Activity
 				}).create().show();
 				break;
 			case FinalUtil.DS_BACKWARDEND:
-				endTime4 = Calendar.getInstance();
+				endTime = endTime4 = Calendar.getInstance();
 				int bteml = bundle.getInt("bteml");
 				int bml = bundle.getInt("bml");
 				FinalUtil.getDialog(DigitSpanVisualActivity.this,
@@ -350,7 +348,23 @@ public class DigitSpanVisualActivity extends Activity
 		//starttime1,endtime1,starttime2,endtime2,
 		//starttime3,endtime3,starttime4,endtime4,
 		//millisecond1,millisecond2,millisecond3,millisecond4
-		this.visual.setEvaluate_endtime(FinalUtil.getCurrentTimeString());
+		this.visual.setEvaluate_date(FinalUtil.getCurrentDateString(startTime));
+		this.visual.setEvaluate_starttime(FinalUtil.getCurrentTimeString(startTime));
+		this.visual.setEvaluate_endtime(FinalUtil.getCurrentTimeString(endTime));
+		this.visual.setEvaluate_millisecond(FinalUtil.getTimeDiff(startTime, endTime));
+		this.visual.setPracf_starttime(FinalUtil.getCurrentTimeString(startTime1));
+		this.visual.setPracf_endtimd(FinalUtil.getCurrentTimeString(endTime1));
+		this.visual.setPracf_millisecond(FinalUtil.getTimeDiff(startTime1, endTime1));
+		this.visual.setTestf_starttime(FinalUtil.getCurrentTimeString(startTime2));
+		this.visual.setTestf_endtime(FinalUtil.getCurrentTimeString(endTime2));
+		this.visual.setTestf_millisecond(FinalUtil.getTimeDiff(startTime2, endTime2));
+		this.visual.setPracb_starttime(FinalUtil.getCurrentTimeString(startTime3));
+		this.visual.setPracb_endtime(FinalUtil.getCurrentTimeString(endTime3));
+		this.visual.setPracb_millisecond(FinalUtil.getTimeDiff(startTime3, endTime3));
+		this.visual.setTestb_starttime(FinalUtil.getCurrentTimeString(startTime4));
+		this.visual.setTestb_endtime(FinalUtil.getCurrentTimeString(endTime4));
+		this.visual.setTestb_millisecond(FinalUtil.getTimeDiff(startTime4, endTime4));
+		//
 		this.visual.setForward_TE_ML(result[0]);
 		this.visual.setForward_TE_TT(result[1]);
 		this.visual.setForward_ML(result[2]);

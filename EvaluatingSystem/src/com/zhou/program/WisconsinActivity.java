@@ -116,8 +116,6 @@ public class WisconsinActivity extends Activity {
 					{
 						public void onClick(DialogInterface dialog, int which) 
 						{
-							wis.setEvaluate_date(FinalUtil.getCurrentDateString());
-							wis.setEvaluate_starttime(FinalUtil.getCurrentTimeString());
 							response_iv.setImageResource(
 									wisconsin.init());
 						}
@@ -239,10 +237,32 @@ public class WisconsinActivity extends Activity {
 		this.startTime6 = this.wisconsin.getStartTime6();
 		this.endTime6 = this.wisconsin.getEndTime6();
 		//
+		this.wis.setEvaluate_date(FinalUtil.getCurrentDateString(startTime));
+		this.wis.setEvaluate_starttime(FinalUtil.getCurrentTimeString(startTime));
+		this.wis.setEvaluate_endtime(FinalUtil.getCurrentTimeString(endTime));
+		this.wis.setEvaluate_millisecond(FinalUtil.getTimeDiff(startTime, endTime));
+		this.wis.setColor1starttime(FinalUtil.getCurrentTimeString(startTime1));
+		this.wis.setColor1endtime(FinalUtil.getCurrentTimeString(endTime1));
+		this.wis.setColor1millisecond(FinalUtil.getTimeDiff(startTime1, endTime1));
+		this.wis.setForm1starttime(FinalUtil.getCurrentTimeString(startTime2));
+		this.wis.setForm1endtime(FinalUtil.getCurrentTimeString(endTime2));
+		this.wis.setForm1millisecond(FinalUtil.getTimeDiff(startTime2, endTime2));
+		this.wis.setNumber1starttime(FinalUtil.getCurrentTimeString(startTime3));
+		this.wis.setNumber1endtime(FinalUtil.getCurrentTimeString(endTime3));
+		this.wis.setNumber1millisecond(FinalUtil.getTimeDiff(startTime3, endTime3));
+		this.wis.setColor2starttime(FinalUtil.getCurrentTimeString(startTime4));
+		this.wis.setColor2endtime(FinalUtil.getCurrentTimeString(endTime4));
+		this.wis.setColor2millisecond(FinalUtil.getTimeDiff(startTime4, endTime4));
+		this.wis.setForm2starttime(FinalUtil.getCurrentTimeString(startTime5));
+		this.wis.setForm2endtime(FinalUtil.getCurrentTimeString(endTime5));
+		this.wis.setForm2millisecond(FinalUtil.getTimeDiff(startTime5, endTime5));
+		this.wis.setNumber2starttime(FinalUtil.getCurrentTimeString(startTime6));
+		this.wis.setNumber2endtime(FinalUtil.getCurrentTimeString(endTime6));
+		this.wis.setNumber2millisecond(FinalUtil.getTimeDiff(startTime6, endTime6));
+		//
 		String[] colors = this.wisconsin.getColors();
 		String[] forms = this.wisconsin.getForms();
 		String[] numbers = this.wisconsin.getNumbers();
-		this.wis.setEvaluate_endtime(FinalUtil.getCurrentTimeString());
 		this.wis.setColor1(colors[0]);
 		this.wis.setColor2(colors[1]);
 		this.wis.setForm1(forms[0]);

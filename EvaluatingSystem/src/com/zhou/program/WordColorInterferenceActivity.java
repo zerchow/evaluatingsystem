@@ -122,8 +122,6 @@ public class WordColorInterferenceActivity extends Activity
 		{
 			public void onClick(DialogInterface dialog, int which) 
 			{
-				word.setEvaluate_date(FinalUtil.getCurrentDateString());
-				word.setEvaluate_starttime(FinalUtil.getCurrentTimeString());
 				start();
 			}
 		}).create().show();
@@ -263,6 +261,14 @@ public class WordColorInterferenceActivity extends Activity
 			//totalmillisecond,totalstarttime,totalendtime,date
 			//starttime,endtime,millisecond
 			this.endTime = this.endTime1 = Calendar.getInstance();
+			this.word.setEvaluate_date(FinalUtil.getCurrentDateString(startTime));
+			this.word.setEvaluate_starttime(FinalUtil.getCurrentTimeString(startTime));
+			this.word.setEvaluate_endtime(FinalUtil.getCurrentTimeString(endTime));
+			this.word.setEvaluate_millisecond(FinalUtil.getTimeDiff(startTime, endTime));
+			this.word.setStarttime(FinalUtil.getCurrentTimeString(startTime1));
+			this.word.setEndtime(FinalUtil.getCurrentTimeString(endTime1));
+			this.word.setMillisecond(FinalUtil.getTimeDiff(startTime1, endTime1));
+			//
 			stop = true;
 			/*String tip = "用时：" + (endTime - startTime) + 
 					"ms\n正确：" + correctNums + 
@@ -283,7 +289,6 @@ public class WordColorInterferenceActivity extends Activity
 	}
 	private void stopTheGame()
 	{
-		this.word.setEvaluate_endtime(FinalUtil.getCurrentTimeString());
 		this.word.setCorrect(correctNums);
 		this.word.setError(wrongNums);
 		Intent intent = this.getIntent();

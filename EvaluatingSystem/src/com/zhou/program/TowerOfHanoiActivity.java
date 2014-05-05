@@ -78,6 +78,7 @@ public class TowerOfHanoiActivity extends Activity
 						new ViewGroup.LayoutParams(
 								ViewGroup.LayoutParams.MATCH_PARENT,
 								ViewGroup.LayoutParams.WRAP_CONTENT);
+				view.setLayoutParams(params);
 				view.setGravity(Gravity.CENTER_HORIZONTAL);
 				return view;
 			}
@@ -108,8 +109,6 @@ public class TowerOfHanoiActivity extends Activity
 					{
 						public void onClick(DialogInterface dialog, int which) 
 						{
-							hanoi.setEvaluate_date(FinalUtil.getCurrentDateString());
-							hanoi.setEvaluate_starttime(FinalUtil.getCurrentTimeString());
 						}
 					}).create().show();
 				}
@@ -167,8 +166,17 @@ public class TowerOfHanoiActivity extends Activity
 				//totalmillisecond,totalstarttime,totalendtime,date
 				//score,starttime1,endtime1,starttime2,endtime2,millisecond1,millisecond2
 				testEndTime = endTime = Calendar.getInstance();
+				hanoi.setEvaluate_date(FinalUtil.getCurrentDateString(startTime));
+				hanoi.setEvaluate_starttime(FinalUtil.getCurrentTimeString(startTime));
+				hanoi.setEvaluate_endtime(FinalUtil.getCurrentTimeString(endTime));
+				hanoi.setEvaluate_millisecond(FinalUtil.getTimeDiff(startTime, endTime));
+				hanoi.setPrac_starttime(FinalUtil.getCurrentTimeString(pracStartTime));
+				hanoi.setPrac_endtime(FinalUtil.getCurrentTimeString(pracEndTime));
+				hanoi.setPrac_millisecond(FinalUtil.getTimeDiff(pracStartTime, pracEndTime));
+				hanoi.setTest_starttime(FinalUtil.getCurrentTimeString(testStartTime));
+				hanoi.setTest_endtime(FinalUtil.getCurrentTimeString(testEndTime));
+				hanoi.setTest_millisecond(FinalUtil.getTimeDiff(testStartTime, testEndTime));
 				//
-				hanoi.setEvaluate_endtime(FinalUtil.getCurrentTimeString());
 				int totalSocre = msg.getData().getInt("end");
 				hanoi.setScore(totalSocre);
 				FinalUtil.getDialog(TowerOfHanoiActivity.this, "结束", false)

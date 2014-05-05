@@ -590,7 +590,7 @@ public class EvalSysDatabaseHelper extends SQLiteOpenHelper
 		values.put("evaluate_endtime", visual.getEvaluate_endtime());
 		values.put("evaluate_millisecond", visual.getEvaluate_millisecond());
 		values.put("pracf_starttime", visual.getPracf_starttime());
-		values.put("pracf_endtime", visual.getPracf_endtimd());
+		values.put("pracf_endtime", visual.getPracf_endtime());
 		values.put("pracf_millisecond", visual.getPracf_millisecond());
 		values.put("testf_starttime", visual.getTestf_starttime());
 		values.put("testf_endtime", visual.getTestf_endtime());

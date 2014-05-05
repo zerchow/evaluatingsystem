@@ -11,7 +11,7 @@ public class Visual implements Serializable
 	private String evaluate_endtime;
 	private long evaluate_millisecond;
 	private String pracf_starttime;
-	private String pracf_endtimd;
+	private String pracf_endtime;
 	private long pracf_millisecond;
 	private String testf_starttime;
 	private String testf_endtime;
@@ -150,13 +150,13 @@ public class Visual implements Serializable
 	{
 		this.pracf_starttime = pracf_starttime;
 	}
-	public String getPracf_endtimd() 
+	public String getPracf_endtime() 
 	{
-		return pracf_endtimd;
+		return pracf_endtime;
 	}
 	public void setPracf_endtimd(String pracf_endtimd) 
 	{
-		this.pracf_endtimd = pracf_endtimd;
+		this.pracf_endtime = pracf_endtimd;
 	}
 	public long getPracf_millisecond() 
 	{

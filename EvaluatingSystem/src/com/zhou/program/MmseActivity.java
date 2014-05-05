@@ -91,9 +91,6 @@ public class MmseActivity extends Activity
 				new submitListener());
 		//
 		this.startTime = Calendar.getInstance();
-		//
-		this.mmse.setEvaluate_date(FinalUtil.getCurrentDateString());
-		this.mmse.setEvaluate_starttime(FinalUtil.getCurrentTimeString());
 	}
 	class submitListener implements OnClickListener
 	{
@@ -113,11 +110,14 @@ public class MmseActivity extends Activity
 			score += mmse_pro_11.getRating();
 			//totalmillisecond,totalstarttime,totalendtime,date
 			endTime = Calendar.getInstance();
+			mmse.setEvaluate_date(FinalUtil.getCurrentDateString(startTime));
+			mmse.setEvaluate_starttime(FinalUtil.getCurrentTimeString(startTime));
+			mmse.setEvaluate_endtime(FinalUtil.getCurrentTimeString(endTime));
+			mmse.setEvaluate_millisecond(FinalUtil.getTimeDiff(startTime, endTime));
 			//
 			String awareness_state = mmse_choose[
 					mmse_pro_12.getSelectedItemPosition()];
 			mmse.setAwareness_state(awareness_state);
-			mmse.setEvaluate_endtime(FinalUtil.getCurrentTimeString());
 			mmse.setScore((int)score);
 			FinalUtil.getDialog(MmseActivity.this,
 					"结果",false)

@@ -206,8 +206,6 @@ public class AospanActivity extends Activity
 						{
 							public void onClick(DialogInterface dialog, int which) 
 							{
-								aos.setEvaluate_date(FinalUtil.getCurrentDateString());
-								aos.setEvaluate_starttime(FinalUtil.getCurrentTimeString());
 								start();
 							}
 						}).create().show();
@@ -462,6 +460,22 @@ public class AospanActivity extends Activity
 					//starttime3,endtime3,starttime4,endtime4,
 					//millisecond1,millisecond2,millisecond3,millisecond4
 					endTime = endTime4 = Calendar.getInstance();
+					aos.setEvaluate_date(FinalUtil.getCurrentDateString(startTime));
+					aos.setEvaluate_starttime(FinalUtil.getCurrentTimeString(startTime));
+					aos.setEvaluate_endtime(FinalUtil.getCurrentTimeString(endTime));
+					aos.setEvaluate_millisecond(FinalUtil.getTimeDiff(startTime, endTime));
+					aos.setPracletter_starttime(FinalUtil.getCurrentTimeString(startTime1));
+					aos.setPracletter_endtime(FinalUtil.getCurrentTimeString(endTime1));
+					aos.setPracletter_millisecond(FinalUtil.getTimeDiff(startTime1, endTime1));
+					aos.setPracmath_starttime(FinalUtil.getCurrentTimeString(startTime2));
+					aos.setPracmath_endtime(FinalUtil.getCurrentTimeString(endTime2));
+					aos.setPracmath_millisecond(FinalUtil.getTimeDiff(startTime2, endTime2));
+					aos.setPracboth_starttime(FinalUtil.getCurrentTimeString(startTime3));
+					aos.setPracboth_endtime(FinalUtil.getCurrentTimeString(endTime3));
+					aos.setPracboth_millisecond(FinalUtil.getTimeDiff(startTime3, endTime3));
+					aos.setTestboth_starttime(FinalUtil.getCurrentTimeString(startTime4));
+					aos.setTestboth_endtime(FinalUtil.getCurrentTimeString(endTime4));
+					aos.setTestboth_millisecond(FinalUtil.getTimeDiff(startTime4, endTime4));
 					//
 					String end = "OSPAN Absolute Score: " + OSPAN_ABSOLUTE_SCORE + 
 							"\nOSPAN Total Correct: " + OSPAN_TOTAL_CORRECT + 
@@ -487,7 +501,6 @@ public class AospanActivity extends Activity
 	//
 	private void stopTheGame()
 	{
-		this.aos.setEvaluate_endtime(FinalUtil.getCurrentTimeString());
 		this.aos.setOspan_absoluate_score(OSPAN_ABSOLUTE_SCORE);
 		this.aos.setOspan_total_correct(OSPAN_TOTAL_CORRECT);
 		this.aos.setMath_accuracy_errors(MATH_ACCURACY_ERRORS);

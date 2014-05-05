@@ -69,8 +69,6 @@ public class LineContactActivity extends Activity
 		//
 		this.startTime = Calendar.getInstance();
 		//
-		this.line.setEvaluate_date(FinalUtil.getCurrentDateString());
-		this.line.setEvaluate_starttime(FinalUtil.getCurrentTimeString());
 	}
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) 
@@ -153,6 +151,17 @@ public class LineContactActivity extends Activity
 						currentGame == FinalUtil.SIMPLEB)
 					endTime = bEndTime = Calendar.getInstance();
 				//
+				line.setEvaluate_date(FinalUtil.getCurrentDateString(startTime));
+				line.setEvaluate_starttime(FinalUtil.getCurrentTimeString(startTime));
+				line.setEvaluate_endtime(FinalUtil.getCurrentTimeString(endTime));
+				line.setEvaluate_millisecond(FinalUtil.getTimeDiff(startTime, endTime));
+				line.setPrac_starttime(FinalUtil.getCurrentTimeString(aStartTime));
+				line.setPrac_endtime(FinalUtil.getCurrentTimeString(aEndTime));
+				line.setPrac_millisecond(FinalUtil.getTimeDiff(aStartTime, aEndTime));
+				line.setTest_starttime(FinalUtil.getCurrentTimeString(bStartTime));
+				line.setTest_endtime(FinalUtil.getCurrentTimeString(bEndTime));
+				line.setTest_millisecond(FinalUtil.getTimeDiff(bStartTime, bEndTime));
+				//
 				final int errorTimes = msg.getData().getInt(
 						"errorTimes");
 				String feedback = "很好，你完成了这组测验" +
@@ -177,7 +186,6 @@ public class LineContactActivity extends Activity
 						else
 						{
 							simpleBErrorTime = errorTimes;
-							line.setEvaluate_endtime(FinalUtil.getCurrentTimeString());
 							line.setSimple_a_error(simpleAErrorTime);
 							line.setSimple_b_error(simpleBErrorTime);
 							Intent intent = getIntent();

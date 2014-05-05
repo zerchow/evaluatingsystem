@@ -111,6 +111,13 @@ public class CuedGoNoGoActivity extends Activity
 					//totalmillisecond,totalstarttime,totalendtime,date
 					//starttime,endtime,millisecond
 					endTime = endTime1 = Calendar.getInstance();
+					cuedDao.setEvaluate_date(FinalUtil.getCurrentDateString(startTime));
+					cuedDao.setEvaluate_starttime(FinalUtil.getCurrentTimeString(startTime));
+					cuedDao.setEvaluate_endtime(FinalUtil.getCurrentTimeString(endTime));
+					cuedDao.setEvaluate_millisecond(FinalUtil.getTimeDiff(startTime, endTime));
+					cuedDao.setStarttime(FinalUtil.getCurrentTimeString(startTime1));
+					cuedDao.setEndtime(FinalUtil.getCurrentTimeString(endTime1));
+					cuedDao.setMillisecond(FinalUtil.getTimeDiff(startTime1, endTime1));
 					//
 					FinalUtil.getDialog(CuedGoNoGoActivity.this,
 							"结束",false)
@@ -120,7 +127,6 @@ public class CuedGoNoGoActivity extends Activity
 					{
 						public void onClick(DialogInterface dialog, int which) 
 						{
-							cuedDao.setEvaluate_endtime(FinalUtil.getCurrentTimeString());
 							cuedDao.setCorrect(correct);
 							cuedDao.setError(error);
 							Intent intent = getIntent();
@@ -162,8 +168,6 @@ public class CuedGoNoGoActivity extends Activity
 			public void onClick(DialogInterface dialog, int which) 
 			{
 				stop = false;
-				cuedDao.setEvaluate_date(FinalUtil.getCurrentDateString());
-				cuedDao.setEvaluate_starttime(FinalUtil.getCurrentTimeString());
 				start();
 			}
 		}).create().show();

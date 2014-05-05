@@ -133,8 +133,6 @@ public class DigitSpanAcousticActivity extends Activity
 				{
 					public void onClick(DialogInterface dialog, int which) 
 					{
-						acoustic.setEvaluate_date(FinalUtil.getCurrentDateString());
-						acoustic.setEvaluate_starttime(FinalUtil.getCurrentTimeString());
 						start();
 					}
 				}).create().show();
@@ -314,7 +312,7 @@ public class DigitSpanAcousticActivity extends Activity
 				}).create().show();
 				break;
 			case FinalUtil.DS_BACKWARDEND:
-				endTime4 = Calendar.getInstance();
+				endTime = endTime4 = Calendar.getInstance();
 				int bteml = bundle.getInt("bteml");
 				int bml = bundle.getInt("bml");
 				FinalUtil.getDialog(DigitSpanAcousticActivity.this,
@@ -357,7 +355,23 @@ public class DigitSpanAcousticActivity extends Activity
 		//starttime1,endtime1,starttime2,endtime2,
 		//starttime3,endtime3,starttime4,endtime4,
 		//millisecond1,millisecond2,millisecond3,millisecond4
-		this.acoustic.setEvaluate_endtime(FinalUtil.getCurrentTimeString());
+		this.acoustic.setEvaluate_date(FinalUtil.getCurrentDateString(startTime));
+		this.acoustic.setEvaluate_starttime(FinalUtil.getCurrentTimeString(startTime));
+		this.acoustic.setEvaluate_endtime(FinalUtil.getCurrentTimeString(endTime));
+		this.acoustic.setEvaluate_millisecond(FinalUtil.getTimeDiff(startTime, endTime));
+		this.acoustic.setPracf_starttime(FinalUtil.getCurrentTimeString(startTime1));
+		this.acoustic.setPracf_endtimd(FinalUtil.getCurrentTimeString(endTime1));
+		this.acoustic.setPracf_millisecond(FinalUtil.getTimeDiff(startTime1, endTime1));
+		this.acoustic.setTestf_starttime(FinalUtil.getCurrentTimeString(startTime2));
+		this.acoustic.setTestf_endtime(FinalUtil.getCurrentTimeString(endTime2));
+		this.acoustic.setTestf_millisecond(FinalUtil.getTimeDiff(startTime2, endTime2));
+		this.acoustic.setPracb_starttime(FinalUtil.getCurrentTimeString(startTime3));
+		this.acoustic.setPracb_endtime(FinalUtil.getCurrentTimeString(endTime3));
+		this.acoustic.setPracb_millisecond(FinalUtil.getTimeDiff(startTime3, endTime3));
+		this.acoustic.setTestb_starttime(FinalUtil.getCurrentTimeString(startTime4));
+		this.acoustic.setTestb_endtime(FinalUtil.getCurrentTimeString(endTime4));
+		this.acoustic.setTestb_millisecond(FinalUtil.getTimeDiff(startTime4, endTime4));
+		//
 		this.acoustic.setForward_TE_ML(result[0]);
 		this.acoustic.setForward_TE_TT(result[1]);
 		this.acoustic.setForward_ML(result[2]);
