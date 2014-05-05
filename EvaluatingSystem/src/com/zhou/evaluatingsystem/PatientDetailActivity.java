@@ -75,7 +75,6 @@ public class PatientDetailActivity extends Activity
 	//
 	public void allResult(View view)
 	{
-		
 	}
 	//
 	public void resultTable(View view)

@@ -79,8 +79,8 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:name=".CheckResultActivity" android:screenOrientation="landscape"/>
         <!--created by ZHOU at 2014-05-02 10:37:17-->
-        <activity android:name=".PatientDetailActivity"
+        <activity
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="landscape"/>
+            android:name=".PatientDetailActivity" android:screenOrientation="landscape"/>
     </application>
 </manifest>

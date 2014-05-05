@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView 
+<!-- <ScrollView 
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"> -->
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
+	    android:layout_height="match_parent"
 	    android:orientation="vertical"
 	    android:background="@drawable/cutter_patient">
 	    <LinearLayout 
@@ -139,14 +140,15 @@
 	            android:layout_weight="1"
 	            android:orientation="horizontal"
 	            android:gravity="center">
+	            
 	            <Button 
-	                android:id="@+id/allResult_btn"
+	                android:id="@+id/evaluateNow_btn"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-			        android:text="@string/allResult"
+			        android:text="@string/evaluateNow"
 			        android:textColor="@color/white_text"
 			        android:background="@drawable/btn_press"
-			        android:onClick="allResult"/>
+			        android:onClick="evaluateNow"/>
 	        </LinearLayout>
 	        <LinearLayout 
 	            android:layout_width="match_parent"
@@ -164,7 +166,7 @@
 			        android:onClick="resultTable"/>
 	        </LinearLayout>
 	    </LinearLayout>
-	    <LinearLayout 
+	    <!-- <LinearLayout 
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:orientation="horizontal"
@@ -177,13 +179,13 @@
 	            android:orientation="horizontal"
 	            android:gravity="center">
 	            <Button 
-	                android:id="@+id/evaluateNow_btn"
+	                android:id="@+id/allResult_btn"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-			        android:text="@string/evaluateNow"
+			        android:text="@string/allResult"
 			        android:textColor="@color/white_text"
 			        android:background="@drawable/btn_press"
-			        android:onClick="evaluateNow"/>
+			        android:onClick="allResult"/>
 	        </LinearLayout>
 	        <LinearLayout 
 	            android:layout_width="match_parent"
@@ -191,15 +193,15 @@
 	            android:layout_weight="1"
 	            android:orientation="horizontal"
 	            android:gravity="center">
-	            <!-- <Button 
+	            <Button 
 	                android:id="@+id/modifyInfo_btn"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
 			        android:text="@string/modifyInfo"
 			        android:textColor="@color/white_text"
 			        android:background="@drawable/btn_press"
-			        android:onClick="modifyInfo"/> -->
+			        android:onClick="modifyInfo"/>
 	        </LinearLayout>
-	    </LinearLayout>
+	    </LinearLayout> -->
 	</LinearLayout>
-</ScrollView>
+<!-- </ScrollView> -->
