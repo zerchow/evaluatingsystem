@@ -270,10 +270,8 @@ public class WordColorInterferenceActivity extends Activity
 			this.word.setMillisecond(FinalUtil.getTimeDiff(startTime1, endTime1));
 			//
 			stop = true;
-			/*String tip = "用时：" + (endTime - startTime) + 
-					"ms\n正确：" + correctNums + 
-					"\n错误：" + wrongNums;*/
-			String tip = "";
+			String tip = "ms\n正确：" + correctNums + 
+					"\n错误：" + wrongNums;
 			FinalUtil.getDialog(WordColorInterferenceActivity.this,
 					"结束",false)
 			.setMessage(tip)

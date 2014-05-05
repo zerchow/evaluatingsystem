@@ -288,8 +288,8 @@ public class WisconsinCardSorting
 					this.currentCorrectStreak = 0;
 					this.isGaming = false;
 					if(this.endTime3 == null)
-						this.endTime6 = Calendar.getInstance();
-					else if(this.endTime3 == null)
+						this.endTime3 = Calendar.getInstance();
+					else if(this.endTime6 == null)
 						this.endTime6 = Calendar.getInstance();
 				}
 				else

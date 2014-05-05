@@ -22,6 +22,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -74,10 +75,10 @@ public class TowerOfHanoiActivity extends Activity
 			public View makeView() 
 			{
 				TextView view = new TextView(TowerOfHanoiActivity.this);
-				ViewGroup.LayoutParams params = 
-						new ViewGroup.LayoutParams(
-								ViewGroup.LayoutParams.MATCH_PARENT,
-								ViewGroup.LayoutParams.WRAP_CONTENT);
+				FrameLayout.LayoutParams params = 
+						new FrameLayout.LayoutParams(
+								FrameLayout.LayoutParams.MATCH_PARENT,
+								FrameLayout.LayoutParams.WRAP_CONTENT);
 				view.setLayoutParams(params);
 				view.setGravity(Gravity.CENTER_HORIZONTAL);
 				return view;
@@ -118,11 +119,19 @@ public class TowerOfHanoiActivity extends Activity
 	//按钮事件，表示重新开始
 	public void reset(View view)
 	{
+		if(pracStartTime == null)
+			pracStartTime = Calendar.getInstance();
+		else if(pracEndTime != null && testStartTime == null)
+			testStartTime = Calendar.getInstance();
 		this.mainHanoi.init();
 	}
 	//按钮事件，表示下一个
 	public void next(View view)
 	{
+		if(pracStartTime == null)
+			pracStartTime = Calendar.getInstance();
+		else if(testStartTime == null)
+			testStartTime = Calendar.getInstance();
 		this.mainHanoi.initNext();
 		this.scanonlyHanoi.scanNext();
 	}

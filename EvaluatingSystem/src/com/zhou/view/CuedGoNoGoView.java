@@ -144,6 +144,7 @@ public class CuedGoNoGoView extends View
 	}
 	public void setFixation() 
 	{
+		this.isUserDo = false;
 		this.isFixation = true;
 		this.isFrame = false;
 		this.isColorFrame = false;
