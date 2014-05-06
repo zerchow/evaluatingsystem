@@ -6,11 +6,13 @@ package com.zhou.evaluatingsystem;
 import java.util.Calendar;
 
 import com.zhou.model.Patient;
+import com.zhou.sqlite.EvalSysDatabaseHelper;
 import com.zhou.util.FinalUtil;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
@@ -34,10 +36,12 @@ public class PatientInfoActivity extends Activity
 	private EditText patient_name_et;
 	private EditText patient_id_et;
 	private RadioButton patient_male_rb;
+	private RadioButton patient_female_rb;
 	private DatePicker patient_birth_dp;
 	private EditText patient_diagnose_et;
 	private Button patient_info_submit;
 	private Patient patient = new Patient();
+	private EvalSysDatabaseHelper dbHelper;
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
 	{
@@ -52,6 +56,8 @@ public class PatientInfoActivity extends Activity
 				findViewById(R.id.patient_id_et);
 		this.patient_male_rb = (RadioButton)
 				findViewById(R.id.patient_male_rb);
+		this.patient_female_rb = (RadioButton)
+				findViewById(R.id.patient_female_rb);
 		this.patient_birth_dp = (DatePicker)
 				findViewById(R.id.patient_birth_dp);
 		this.patient_diagnose_et = (EditText)
@@ -59,6 +65,7 @@ public class PatientInfoActivity extends Activity
 		this.patient_info_submit = (Button)
 				findViewById(R.id.patient_info_submit);
 		//初始化变量
+		this.dbHelper = new EvalSysDatabaseHelper(this);
 		//为控件指定监听器
 		this.patient_info_submit.setOnClickListener(
 		new OnClickListener() 
@@ -78,6 +85,38 @@ public class PatientInfoActivity extends Activity
 				finish();
 			}
 		});
+		//
+		Intent intent = this.getIntent();
+		Bundle bundle = intent.getExtras();
+		
+		if(bundle != null)
+		{
+			String id = bundle.getString("id");
+			Cursor cursor = this.dbHelper.queryPatient(id);
+			if(cursor.moveToFirst())
+			{
+				this.patient_name_et.setText(cursor.getString(cursor.getColumnIndex("name")));
+				this.patient_id_et.setText(id);
+				this.patient_id_et.setEnabled(false);
+				if(cursor.getString(cursor.getColumnIndex("gender")).equals(FinalUtil.MALE))
+				{
+					this.patient_male_rb.setChecked(true);
+					this.patient_female_rb.setChecked(false);
+				}
+				else
+				{
+					this.patient_male_rb.setChecked(false);
+					this.patient_female_rb.setChecked(true);
+				}
+				String birth = cursor.getString(cursor.getColumnIndex("birth"));
+				String[] parts = birth.split("-");
+				this.patient_birth_dp.init(Integer.valueOf(parts[0]),
+						Integer.valueOf(parts[1]) - 1,
+						Integer.valueOf(parts[2]),null);
+				this.patient_diagnose_et.setText(cursor.getString(cursor.getColumnIndex("diagnose")));
+			}
+			cursor.close();
+		}
 	}
 	private boolean validate()
 	{
@@ -87,9 +126,9 @@ public class PatientInfoActivity extends Activity
 				FinalUtil.MALE : FinalUtil.FEMALE;
 		String birth_year = String.valueOf(
 				this.patient_birth_dp.getYear());
-		String birth_month = String.valueOf(
+		String birth_month = String.format("%02d", 
 				this.patient_birth_dp.getMonth() + 1);
-		String birth_day = String.valueOf(
+		String birth_day = String.format("%02d", 
 				this.patient_birth_dp.getDayOfMonth());
 		String patient_diagnose = this.patient_diagnose_et.getText().toString().trim();
 		if(TextUtils.isEmpty(patient_name))

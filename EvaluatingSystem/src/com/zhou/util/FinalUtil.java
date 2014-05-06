@@ -25,8 +25,12 @@ public class FinalUtil implements Serializable
 	//请求码、结果码
 	public static final int ADD_REQUEST_CODE = 0x45;
 	public static final int ADD_RESULT_CODE = 0x46;
-	//数据库插入失败提示
+	//数据库操作提示
 	public static final String ALREADY_EXIST = "已存在，插入失败";
+	public static final String UPDATE_SUCCESS = "修改成功";
+	public static final String UPDATE_FAIL = "修改失败";
+	public static final String DELETE_SUCCESS = "删除成功";
+	public static final String DELETE_FAIL = "删除失败";
 	//传输过程的消息
 	public static final int BACKUP_FEEDBACK = 0x200;
 	//传输失败的消息
@@ -177,17 +181,17 @@ public class FinalUtil implements Serializable
 	public static String getCurrentTimeString()
 	{
 		Calendar calendar = Calendar.getInstance();
-		return calendar.get(Calendar.HOUR_OF_DAY) + ":"
-				+ calendar.get(Calendar.MINUTE) + ":"
-				+ calendar.get(Calendar.SECOND);
+		return String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY)) + ":"
+				+ String.format("%02d", calendar.get(Calendar.MINUTE)) + ":"
+				+ String.format("%02d", calendar.get(Calendar.SECOND));
 	}
 	public static String getCurrentTimeString(Calendar calendar)
 	{
 		if(calendar == null)
 			return "";
-		return calendar.get(Calendar.HOUR_OF_DAY) + ":"
-				+ calendar.get(Calendar.MINUTE) + ":"
-				+ calendar.get(Calendar.SECOND);
+		return String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY)) + ":"
+				+ String.format("%02d", calendar.get(Calendar.MINUTE)) + ":"
+				+ String.format("%02d", calendar.get(Calendar.SECOND));
 	}
 	public static long getTimeDiff(Calendar cal1,Calendar cal2)
 	{
@@ -199,16 +203,16 @@ public class FinalUtil implements Serializable
 	{
 		Calendar calendar = Calendar.getInstance();
 		return calendar.get(Calendar.YEAR) + "-"
-				+ (calendar.get(Calendar.MONTH) + 1) + "-"
-				+ calendar.get(Calendar.DATE);
+				+ String.format("%02d", (calendar.get(Calendar.MONTH) + 1)) + "-"
+				+ String.format("%02d", calendar.get(Calendar.DATE));
 	}
 	public static String getCurrentDateString(Calendar calendar)
 	{
 		if(calendar == null)
 			return "";
 		return calendar.get(Calendar.YEAR) + "-"
-				+ (calendar.get(Calendar.MONTH) + 1) + "-"
-				+ calendar.get(Calendar.DATE);
+				+ String.format("%02d", (calendar.get(Calendar.MONTH) + 1)) + "-"
+				+ String.format("%02d", calendar.get(Calendar.DATE));
 	}
 	//
 	public static boolean hasNetwork(Context context)

@@ -4,14 +4,23 @@
 package com.zhou.evaluatingsystem;
 
 import com.zhou.sqlite.EvalSysDatabaseHelper;
+import com.zhou.util.FinalUtil;
 import com.zhou.view.SpecialListView;
 
 import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.widget.CursorAdapter;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.SimpleAdapter;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * @author ZHOU
@@ -30,6 +39,7 @@ public class CheckResultActivity extends Activity
 	private SpecialListView type_3_3_list;
 	//
 	private EvalSysDatabaseHelper dbHelper;
+	private String id;
 	/* (non-Javadoc)
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
 	 */
@@ -62,27 +72,44 @@ public class CheckResultActivity extends Activity
 				findViewById(R.id.type_3_3_list);
 		//
 		this.dbHelper = new EvalSysDatabaseHelper(this);
+		Intent intent = this.getIntent();
+		Bundle bundle = intent.getExtras();
+		this.id = bundle.getString("id");
 		//
 		this.type_1_1_list.setAdapter(this.getType11Adapter());
+		this.type_1_1_list.setOnItemLongClickListener(new DeleteListener());
 		this.type_2_1_list.setAdapter(this.getType21Adatper());
+		this.type_2_1_list.setOnItemLongClickListener(new DeleteListener());
 		this.type_2_2_list.setAdapter(this.getType22Adapter());
+		this.type_2_2_list.setOnItemLongClickListener(new DeleteListener());
 		this.type_2_3_list.setAdapter(this.getType23Adapter());
+		this.type_2_3_list.setOnItemLongClickListener(new DeleteListener());
 		this.type_2_4_list.setAdapter(this.getType24Adapter());
+		this.type_2_4_list.setOnItemLongClickListener(new DeleteListener());
 		this.type_2_5_list.setAdapter(this.getType25Adapter());
+		this.type_2_5_list.setOnItemLongClickListener(new DeleteListener());
 		this.type_3_1_list.setAdapter(this.getType31Adapter());
+		this.type_3_1_list.setOnItemLongClickListener(new DeleteListener());
 		this.type_3_2_list.setAdapter(this.getType32Adapter());
+		this.type_3_2_list.setOnItemLongClickListener(new DeleteListener());
 		this.type_3_3_list.setAdapter(this.getType33Adapter());
+		this.type_3_3_list.setOnItemLongClickListener(new DeleteListener());
+	}
+	private String getId()
+	{
+		return this.id;
 	}
 	private SimpleCursorAdapter getType11Adapter()
 	{
 		return new SimpleCursorAdapter(this,
 				R.layout.type_1_1_layout,
-				this.dbHelper.queryAllMmse(),
-				new String[]{
+				this.dbHelper.queryAllMmse(this.getId()),
+				new String[]{"_id",
 			"doctor_name","evaluate_date",
 			"evaluate_starttime","evaluate_endtime",
 			"evaluate_millisecond","score","awareness_state"
 		},new int[]{
+			R.id.type_1_1_id,
 			R.id.type_1_1_doctor,
 			R.id.type_1_1_eval_date,
 			R.id.type_1_1_eval_start,
@@ -96,14 +123,15 @@ public class CheckResultActivity extends Activity
 	{
 		return new SimpleCursorAdapter(this,
 				R.layout.type_2_1_layout,
-				this.dbHelper.queryAllHanoi(),
-				new String[]{
+				this.dbHelper.queryAllHanoi(this.getId()),
+				new String[]{"_id",
 			"doctor_name","evaluate_date",
 			"evaluate_starttime","evaluate_endtime",
 			"evaluate_millisecond","score",
 			"prac_starttime","prac_endtime","prac_millisecond",
 			"test_starttime","test_endtime","test_millisecond"
 		},new int[]{
+			R.id.type_2_1_id,
 			R.id.type_2_1_doctor,
 			R.id.type_2_1_eval_date,
 			R.id.type_2_1_eval_start,
@@ -122,8 +150,8 @@ public class CheckResultActivity extends Activity
 	{
 		return new SimpleCursorAdapter(this,
 				R.layout.type_2_2_layout,
-				this.dbHelper.queryAllLine(),
-				new String[]{
+				this.dbHelper.queryAllLine(this.getId()),
+				new String[]{"_id",
 			"doctor_name","evaluate_date",
 			"evaluate_starttime","evaluate_endtime",
 			"evaluate_millisecond",
@@ -131,6 +159,7 @@ public class CheckResultActivity extends Activity
 			"prac_starttime","prac_endtime","prac_millisecond",
 			"test_starttime","test_endtime","test_millisecond"
 		},new int[]{
+			R.id.type_2_2_id,
 			R.id.type_2_2_doctor,
 			R.id.type_2_2_eval_date,
 			R.id.type_2_2_eval_start,
@@ -150,8 +179,8 @@ public class CheckResultActivity extends Activity
 	{
 		return new SimpleCursorAdapter(this,
 				R.layout.type_2_3_layout,
-				this.dbHelper.queryAllWisconsin(),
-				new String[]{
+				this.dbHelper.queryAllWisconsin(this.getId()),
+				new String[]{"_id",
 			"doctor_name","evaluate_date",
 			"evaluate_starttime","evaluate_endtime",
 			"evaluate_millisecond",
@@ -168,6 +197,7 @@ public class CheckResultActivity extends Activity
 			"number2",
 			"number2starttime","number2endtime","number2millisecond"
 		},new int[]{
+			R.id.type_2_3_id,
 			R.id.type_2_3_doctor,
 			R.id.type_2_3_eval_date,
 			R.id.type_2_3_eval_start,
@@ -203,14 +233,15 @@ public class CheckResultActivity extends Activity
 	{
 		return new SimpleCursorAdapter(this,
 				R.layout.type_2_4_layout,
-				this.dbHelper.queryAllCued(),
-				new String[]{
+				this.dbHelper.queryAllCued(this.getId()),
+				new String[]{"_id",
 			"doctor_name","evaluate_date",
 			"evaluate_starttime","evaluate_endtime",
 			"evaluate_millisecond",
 			"correct","error",
 			"starttime","endtime","millisecond"
 		},new int[]{
+			R.id.type_2_4_id,
 			R.id.type_2_4_doctor,
 			R.id.type_2_4_eval_date,
 			R.id.type_2_4_eval_start,
@@ -227,14 +258,15 @@ public class CheckResultActivity extends Activity
 	{
 		return new SimpleCursorAdapter(this,
 				R.layout.type_2_5_layout,
-				this.dbHelper.queryAllWord(),
-				new String[]{
+				this.dbHelper.queryAllWord(this.getId()),
+				new String[]{"_id",
 			"doctor_name","evaluate_date",
 			"evaluate_starttime","evaluate_endtime",
 			"evaluate_millisecond",
 			"correct","error",
 			"starttime","endtime","millisecond"
 		},new int[]{
+			R.id.type_2_5_id,
 			R.id.type_2_5_doctor,
 			R.id.type_2_5_eval_date,
 			R.id.type_2_5_eval_start,
@@ -251,8 +283,8 @@ public class CheckResultActivity extends Activity
 	{
 		return new SimpleCursorAdapter(this,
 				R.layout.type_3_1_layout,
-				this.dbHelper.queryAllAospan(),
-				new String[]{
+				this.dbHelper.queryAllAospan(this.getId()),
+				new String[]{"_id",
 			"doctor_name","evaluate_date",
 			"evaluate_starttime","evaluate_endtime",
 			"evaluate_millisecond",
@@ -264,6 +296,7 @@ public class CheckResultActivity extends Activity
 			"pracboth_starttime","pracboth_endtime","pracboth_millisecond",
 			"testboth_starttime","testboth_endtime","testboth_millisecond"
 		},new int[]{
+			R.id.type_3_1_id,
 			R.id.type_3_1_doctor,
 			R.id.type_3_1_eval_date,
 			R.id.type_3_1_eval_start,
@@ -292,8 +325,8 @@ public class CheckResultActivity extends Activity
 	{
 		return new SimpleCursorAdapter(this,
 				R.layout.type_3_2_layout,
-				this.dbHelper.queryAllVisual(),
-				new String[]{
+				this.dbHelper.queryAllVisual(this.getId()),
+				new String[]{"_id",
 			"doctor_name","evaluate_date",
 			"evaluate_starttime","evaluate_endtime",
 			"evaluate_millisecond",
@@ -306,6 +339,7 @@ public class CheckResultActivity extends Activity
 			"pracb_starttime","pracb_endtime","pracb_millisecond",
 			"testb_starttime","testb_endtime","testb_millisecond"
 		},new int[]{
+			R.id.type_3_2_id,
 			R.id.type_3_2_doctor,
 			R.id.type_3_2_eval_date,
 			R.id.type_3_2_eval_start,
@@ -337,8 +371,8 @@ public class CheckResultActivity extends Activity
 	{
 		return new SimpleCursorAdapter(this,
 				R.layout.type_3_3_layout,
-				this.dbHelper.queryAllAcoustic(),
-				new String[]{
+				this.dbHelper.queryAllAcoustic(this.getId()),
+				new String[]{"_id",
 			"doctor_name","evaluate_date",
 			"evaluate_starttime","evaluate_endtime",
 			"evaluate_millisecond",
@@ -351,6 +385,7 @@ public class CheckResultActivity extends Activity
 			"pracb_starttime","pracb_endtime","pracb_millisecond",
 			"testb_starttime","testb_endtime","testb_millisecond"
 		},new int[]{
+			R.id.type_3_3_id,
 			R.id.type_3_3_doctor,
 			R.id.type_3_3_eval_date,
 			R.id.type_3_3_eval_start,
@@ -387,5 +422,179 @@ public class CheckResultActivity extends Activity
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	@Override
+	protected void onDestroy() 
+	{
+		// TODO 自动生成的方法存根
+		super.onDestroy();
+		//关闭数据库
+		if(this.dbHelper != null)
+			this.dbHelper.close();
+	}
+	private class DeleteListener implements OnItemLongClickListener
+	{
+		@Override
+		public boolean onItemLongClick(AdapterView<?> parent, View view,
+				int position, long id) 
+		{
+			final int pid = parent.getId();
+			final View itemview = view;
+			FinalUtil.getDialog(CheckResultActivity.this,"确定要删除吗？",true)
+			.setMessage("删除此评估记录！")
+			.setPositiveButton("是",
+					new DialogInterface.OnClickListener() 
+			{
+				String deleteid;
+				boolean result;
+				Cursor cursor;
+				@Override
+				public void onClick(DialogInterface dialog, int which) 
+				{
+					switch(pid)
+					{
+					case R.id.type_1_1_list:
+						deleteid = ((TextView)itemview.findViewById(R.id.type_1_1_id)).getText().toString();
+						if(dbHelper.deleteMmse(deleteid))
+						{
+							cursor = dbHelper.queryAllMmse(getId());
+							((SimpleCursorAdapter)type_1_1_list.getAdapter())
+							.changeCursor(cursor);
+							result = true;
+						}
+						else
+						{
+							result = false;
+						}
+						break;
+					case R.id.type_2_1_list:
+						deleteid = ((TextView)itemview.findViewById(R.id.type_2_1_id)).getText().toString();
+						if(dbHelper.deleteHanoi(deleteid))
+						{
+							cursor = dbHelper.queryAllHanoi(getId());
+							((SimpleCursorAdapter)type_2_1_list.getAdapter())
+							.changeCursor(cursor);
+							result = true;
+						}
+						else
+						{
+							result = false;
+						}
+						break;
+					case R.id.type_2_2_list:
+						deleteid = ((TextView)itemview.findViewById(R.id.type_2_2_id)).getText().toString();
+						if(dbHelper.deleteLine(deleteid))
+						{
+							cursor = dbHelper.queryAllLine(getId());
+							((SimpleCursorAdapter)type_2_2_list.getAdapter())
+							.changeCursor(cursor);
+							result = true;
+						}
+						else
+						{
+							result = false;
+						}
+						break;
+					case R.id.type_2_3_list:
+						deleteid = ((TextView)itemview.findViewById(R.id.type_2_3_id)).getText().toString();
+						if(dbHelper.deleteWisconsin(deleteid))
+						{
+							cursor = dbHelper.queryAllWisconsin(getId());
+							((SimpleCursorAdapter)type_2_3_list.getAdapter())
+							.changeCursor(cursor);
+							result = true;
+						}
+						else
+						{
+							result = false;
+						}
+						break;
+					case R.id.type_2_4_list:
+						deleteid = ((TextView)itemview.findViewById(R.id.type_2_4_id)).getText().toString();
+						if(dbHelper.deleteCued(deleteid))
+						{
+							cursor = dbHelper.queryAllCued(getId());
+							((SimpleCursorAdapter)type_2_4_list.getAdapter())
+							.changeCursor(cursor);
+							result = true;
+						}
+						else
+						{
+							result = false;
+						}
+						break;
+					case R.id.type_2_5_list:
+						deleteid = ((TextView)itemview.findViewById(R.id.type_2_5_id)).getText().toString();
+						if(dbHelper.deleteWord(deleteid))
+						{
+							cursor = dbHelper.queryAllWord(getId());
+							((SimpleCursorAdapter)type_2_5_list.getAdapter())
+							.changeCursor(cursor);
+							result = true;
+						}
+						else
+						{
+							result = false;
+						}
+						break;
+					case R.id.type_3_1_list:
+						deleteid = ((TextView)itemview.findViewById(R.id.type_3_1_id)).getText().toString();
+						if(dbHelper.deleteAospan(deleteid))
+						{
+							cursor = dbHelper.queryAllAospan(getId());
+							((SimpleCursorAdapter)type_3_1_list.getAdapter())
+							.changeCursor(cursor);
+							result = true;
+						}
+						else
+						{
+							result = false;
+						}
+						break;
+					case R.id.type_3_2_list:
+						deleteid = ((TextView)itemview.findViewById(R.id.type_3_2_id)).getText().toString();
+						if(dbHelper.deleteVisual(deleteid))
+						{
+							cursor = dbHelper.queryAllVisual(getId());
+							((SimpleCursorAdapter)type_3_2_list.getAdapter())
+							.changeCursor(cursor);
+							result = true;
+						}
+						else
+						{
+							result = false;
+						}
+						break;
+					case R.id.type_3_3_list:
+						deleteid = ((TextView)itemview.findViewById(R.id.type_3_3_id)).getText().toString();
+						if(dbHelper.deleteAcoustic(deleteid))
+						{
+							cursor = dbHelper.queryAllAcoustic(getId());
+							((SimpleCursorAdapter)type_3_3_list.getAdapter())
+							.changeCursor(cursor);
+							result = true;
+						}
+						else
+						{
+							result = false;
+						}
+						break;
+					}
+					if(result)
+					{
+						Toast.makeText(CheckResultActivity.this,
+								FinalUtil.DELETE_SUCCESS,
+								Toast.LENGTH_LONG).show();
+					}
+					else
+					{
+						Toast.makeText(CheckResultActivity.this, 
+								FinalUtil.DELETE_FAIL,
+								Toast.LENGTH_LONG).show();
+					}
+				}
+			}).create().show();
+			return true;
+		}
 	}
 }

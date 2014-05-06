@@ -289,6 +289,28 @@ public class EvalSysDatabaseHelper extends SQLiteOpenHelper
 			return true;
 		}
 	}
+	public boolean updatePatient(Patient patient)
+	{
+		if(this.queryPatient(patient.get_id()).getCount() == 0)
+		{
+			return false;
+		}
+		ContentValues values = new ContentValues();
+		values.put("name", patient.getName());
+		values.put("gender", patient.getGender());
+		values.put("birth", patient.getBirth());
+		values.put("diagnose", patient.getDiagnose());
+		if(this.getWritableDatabase().update(
+				"patient",values,"_id=?",
+				new String[]{patient.get_id()}) != 0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 	public boolean deletePatient(String hospital_id)
 	{
 		if(this.queryPatient(hospital_id).getCount() == 0)
@@ -310,11 +332,34 @@ public class EvalSysDatabaseHelper extends SQLiteOpenHelper
 	/*
 	 * 
 	 */
-	public Cursor queryAllMmse()
+	public Cursor queryAllMmse(String hospital_id)
 	{
 		return this.getReadableDatabase()
 				.query("mmse",
-						null,null,null,null,null,"hospital_id");
+						null,"hospital_id=?",
+						new String[]{hospital_id},
+						null,null,"hospital_id");
+	}
+	public boolean deleteMmse(String id)
+	{
+		if(this.getReadableDatabase().query("mmse",
+				null,"_id=?",
+				new String[]{id},null,null,"hospital_id")
+				.getCount() == 0)
+		{
+			return false;
+		}
+		if(this.getWritableDatabase().delete("mmse",
+				"_id = ?",
+				new String[]{
+				id}) == 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 	public boolean insertMmse(Mmse mmse)
 	{
@@ -340,11 +385,13 @@ public class EvalSysDatabaseHelper extends SQLiteOpenHelper
 	/*
 	 * 
 	 */
-	public Cursor queryAllHanoi()
+	public Cursor queryAllHanoi(String hospital_id)
 	{
 		return this.getReadableDatabase()
 				.query("hanoi",
-						null,null,null,null,null,"hospital_id");
+						null,"hospital_id=?",
+						new String[]{hospital_id},
+						null,null,"hospital_id");
 	}
 	public boolean insertHanoi(Hanoi hanoi)
 	{
@@ -372,14 +419,58 @@ public class EvalSysDatabaseHelper extends SQLiteOpenHelper
 			return true;
 		}
 	}
+	public boolean deleteHanoi(String id)
+	{
+		if(this.getReadableDatabase().query("hanoi",
+				null,"_id=?",
+				new String[]{id},null,null,"hospital_id")
+				.getCount() == 0)
+		{
+			return false;
+		}
+		if(this.getWritableDatabase().delete("hanoi",
+				"_id = ?",
+				new String[]{
+				id}) == 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
 	/*
 	 * 
 	 */
-	public Cursor queryAllLine()
+	public Cursor queryAllLine(String hospital_id)
 	{
 		return this.getReadableDatabase()
 				.query("line",
-						null,null,null,null,null,"hospital_id");
+						null,"hospital_id=?",
+						new String[]{hospital_id},
+						null,null,"hospital_id");
+	}
+	public boolean deleteLine(String id)
+	{
+		if(this.getReadableDatabase().query("line",
+				null,"_id=?",
+				new String[]{id},null,null,"hospital_id")
+				.getCount() == 0)
+		{
+			return false;
+		}
+		if(this.getWritableDatabase().delete("line",
+				"_id = ?",
+				new String[]{
+				id}) == 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 	public boolean insertLine(Line line)
 	{
@@ -411,11 +502,34 @@ public class EvalSysDatabaseHelper extends SQLiteOpenHelper
 	/*
 	 * 
 	 */
-	public Cursor queryAllWisconsin()
+	public Cursor queryAllWisconsin(String hospital_id)
 	{
 		return this.getReadableDatabase()
 				.query("wisconsin",
-						null,null,null,null,null,"hospital_id");
+						null,"hospital_id=?",
+						new String[]{hospital_id},
+						null,null,"hospital_id");
+	}
+	public boolean deleteWisconsin(String id)
+	{
+		if(this.getReadableDatabase().query("wisconsin",
+				null,"_id=?",
+				new String[]{id},null,null,"hospital_id")
+				.getCount() == 0)
+		{
+			return false;
+		}
+		if(this.getWritableDatabase().delete("wisconsin",
+				"_id = ?",
+				new String[]{
+				id}) == 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 	public boolean insertWisconsin(Wisconsin wisconsin)
 	{
@@ -463,11 +577,34 @@ public class EvalSysDatabaseHelper extends SQLiteOpenHelper
 	/*
 	 * 
 	 */
-	public Cursor queryAllCued()
+	public Cursor queryAllCued(String hospital_id)
 	{
 		return this.getReadableDatabase()
 				.query("cued",
-						null,null,null,null,null,"hospital_id");
+						null,"hospital_id=?",
+						new String[]{hospital_id},
+						null,null,"hospital_id");
+	}
+	public boolean deleteCued(String id)
+	{
+		if(this.getReadableDatabase().query("cued",
+				null,"_id=?",
+				new String[]{id},null,null,"hospital_id")
+				.getCount() == 0)
+		{
+			return false;
+		}
+		if(this.getWritableDatabase().delete("cued",
+				"_id = ?",
+				new String[]{
+				id}) == 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 	public boolean insertCued(Cued cued)
 	{
@@ -496,11 +633,34 @@ public class EvalSysDatabaseHelper extends SQLiteOpenHelper
 	/*
 	 * 
 	 */
-	public Cursor queryAllWord()
+	public Cursor queryAllWord(String hospital_id)
 	{
 		return this.getReadableDatabase()
 				.query("word",
-						null,null,null,null,null,"hospital_id");
+						null,"hospital_id=?",
+						new String[]{hospital_id},
+						null,null,"hospital_id");
+	}
+	public boolean deleteWord(String id)
+	{
+		if(this.getReadableDatabase().query("word",
+				null,"_id=?",
+				new String[]{id},null,null,"hospital_id")
+				.getCount() == 0)
+		{
+			return false;
+		}
+		if(this.getWritableDatabase().delete("word",
+				"_id = ?",
+				new String[]{
+				id}) == 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 	public boolean insertWord(Word word)
 	{
@@ -529,11 +689,34 @@ public class EvalSysDatabaseHelper extends SQLiteOpenHelper
 	/*
 	 * 
 	 */
-	public Cursor queryAllAospan()
+	public Cursor queryAllAospan(String hospital_id)
 	{
 		return this.getReadableDatabase()
 				.query("aospan",
-						null,null,null,null,null,"hospital_id");
+						null,"hospital_id=?",
+						new String[]{hospital_id},
+						null,null,"hospital_id");
+	}
+	public boolean deleteAospan(String id)
+	{
+		if(this.getReadableDatabase().query("aospan",
+				null,"_id=?",
+				new String[]{id},null,null,"hospital_id")
+				.getCount() == 0)
+		{
+			return false;
+		}
+		if(this.getWritableDatabase().delete("aospan",
+				"_id = ?",
+				new String[]{
+				id}) == 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 	public boolean insertAospan(Aos aos)
 	{
@@ -574,11 +757,34 @@ public class EvalSysDatabaseHelper extends SQLiteOpenHelper
 	/*
 	 * 
 	 */
-	public Cursor queryAllVisual()
+	public Cursor queryAllVisual(String hospital_id)
 	{
 		return this.getReadableDatabase()
 				.query("dsvisual",
-						null,null,null,null,null,"hospital_id");
+						null,"hospital_id=?",
+						new String[]{hospital_id},
+						null,null,"hospital_id");
+	}
+	public boolean deleteVisual(String id)
+	{
+		if(this.getReadableDatabase().query("dsvisual",
+				null,"_id=?",
+				new String[]{id},null,null,"hospital_id")
+				.getCount() == 0)
+		{
+			return false;
+		}
+		if(this.getWritableDatabase().delete("dsvisual",
+				"_id = ?",
+				new String[]{
+				id}) == 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 	public boolean insertVisual(Visual visual)
 	{
@@ -622,11 +828,34 @@ public class EvalSysDatabaseHelper extends SQLiteOpenHelper
 	/*
 	 * 
 	 */
-	public Cursor queryAllAcoustic()
+	public Cursor queryAllAcoustic(String hospital_id)
 	{
 		return this.getReadableDatabase()
 				.query("dsacoustic",
-						null,null,null,null,null,"hospital_id");
+						null,"hospital_id=?",
+						new String[]{hospital_id},
+						null,null,"hospital_id");
+	}
+	public boolean deleteAcoustic(String id)
+	{
+		if(this.getReadableDatabase().query("dsacoustic",
+				null,"_id=?",
+				new String[]{id},null,null,"hospital_id")
+				.getCount() == 0)
+		{
+			return false;
+		}
+		if(this.getWritableDatabase().delete("dsacoustic",
+				"_id = ?",
+				new String[]{
+				id}) == 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 	public boolean insertAcoustic(Acoustic acoustic)
 	{

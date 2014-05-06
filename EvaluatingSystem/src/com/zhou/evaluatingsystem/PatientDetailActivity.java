@@ -3,6 +3,7 @@
  */
 package com.zhou.evaluatingsystem;
 
+import com.zhou.model.Patient;
 import com.zhou.sqlite.EvalSysDatabaseHelper;
 import com.zhou.util.FinalUtil;
 
@@ -19,7 +20,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * @author ZHOU
@@ -34,6 +37,7 @@ public class PatientDetailActivity extends Activity
 	private TextView detail_gender;
 	private TextView detail_birth;
 	private TextView detail_diagnose;
+	private String id;
 	/* (non-Javadoc)
 	 * @see android.app.Activity#onCreate(android.os.Bundle)
 	 */
@@ -55,7 +59,11 @@ public class PatientDetailActivity extends Activity
 		//
 		Intent intent = this.getIntent();
 		Bundle bundle = intent.getExtras();
-		String id = bundle.getString("id");
+		id = bundle.getString("id");
+		this.setValues();
+	}
+	private void setValues()
+	{
 		Cursor cursor = this.dbHelper.queryPatient(id);
 		if(cursor.moveToFirst())
 		{
@@ -70,7 +78,7 @@ public class PatientDetailActivity extends Activity
 	//
 	private String getId()
 	{
-		return this.detail_id.getText().toString();
+		return this.id;
 	}
 	//
 	public void allResult(View view)
@@ -89,7 +97,12 @@ public class PatientDetailActivity extends Activity
 	//
 	public void modifyInfo(View view)
 	{
-		
+		Intent intent = new Intent(this,
+				PatientInfoActivity.class);
+		Bundle bundle = new Bundle();
+		bundle.putString("id", this.getId());
+		intent.putExtras(bundle);
+		this.startActivityForResult(intent, FinalUtil.ADD_REQUEST_CODE);
 	}
 	//
 	public void evaluateNow(View v)
@@ -138,6 +151,30 @@ public class PatientDetailActivity extends Activity
 			}
 		});
 		showDialog.show();
+	}
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent intent) 
+	{
+		// TODO 自动生成的方法存根
+		//super.onActivityResult(requestCode, resultCode, data);
+		if(requestCode == FinalUtil.ADD_REQUEST_CODE &&
+				resultCode == FinalUtil.ADD_RESULT_CODE)
+		{
+			Bundle bundle = intent.getExtras();
+			Patient patient = (Patient)bundle.getSerializable(
+					"new_patient");
+			if(this.dbHelper.updatePatient(patient))
+			{
+				this.setValues();
+				Toast.makeText(this, FinalUtil.UPDATE_SUCCESS,
+						Toast.LENGTH_LONG).show();
+			}
+			else
+			{
+				Toast.makeText(this,FinalUtil.UPDATE_FAIL,
+						Toast.LENGTH_LONG).show();
+			}
+		}
 	}
 	@Override
 	public void onBackPressed() 

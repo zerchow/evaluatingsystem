@@ -14,6 +14,7 @@ import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 
 import com.zhou.socket.BackupSocketThread;
+import com.zhou.socket.SynchronizationSocketThread;
 import com.zhou.util.FinalUtil;
 
 import android.app.Activity;
@@ -80,11 +81,13 @@ public class EnterActivity extends Activity
 		}
 		return true;
 	}
-	public void backupData(View v)
+	public void backupAndSynchronization(View v)
 	{
 		if(! this.hasNetwork())
 			return;
-		
+		//
+		final int id = v.getId();
+		//
 		View view = getLayoutInflater().inflate(
 				R.layout.ip_layout,null);
 		final EditText ip_name_et = (EditText)
@@ -170,6 +173,11 @@ public class EnterActivity extends Activity
 							ip_name_et.setSelection(length - 1);
 							return;
 						}
+						else if(length - 1 - lastDot == 1 && result.length != 4)
+						{
+							ip_name_et.setText(text + ".");
+							ip_name_et.setSelection(length + 1);
+						}
 					}
 				}
 				//超过255，设为最大255
@@ -216,9 +224,19 @@ public class EnterActivity extends Activity
 				}
 				else
 				{
-					BackupSocketThread backup = new BackupSocketThread(
-							EnterActivity.this,ip_name_et.getText().toString());
-					backup.start();
+					if(id == R.id.synchronization_btn)
+					{
+						SynchronizationSocketThread synchronization = 
+								new SynchronizationSocketThread(EnterActivity.this,
+										ip_name_et.getText().toString());
+						synchronization.start();
+					}
+					else if(id == R.id.backup_btn)
+					{
+						BackupSocketThread backup = new BackupSocketThread(
+								EnterActivity.this,ip_name_et.getText().toString());
+						backup.start();
+					}
 					showDialog.dismiss();
 				}
 			}

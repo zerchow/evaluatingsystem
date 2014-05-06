@@ -2,14 +2,18 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/cutter_patient">
      
 	<TableLayout
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    android:layout_gravity="center_horizontal" >
+	    android:layout_gravity="center_horizontal"
+	    android:layout_margin="5dp">
 
-	    <TableRow>
+	    <TableRow
+	        android:layout_marginTop="5dp"
+	        android:layout_marginBottom="5dp">
 	        <TextView 
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
@@ -23,9 +27,12 @@
 	            android:layout_width="match_parent"
 	            android:layout_weight="2"
 	            android:hint="@string/patient_name_et"
-	            android:singleLine="true"/>
+	            android:singleLine="true"
+	            android:background="@drawable/edittext_back"/>
 	    </TableRow>
-	    <TableRow>
+	    <TableRow
+	        android:layout_marginTop="5dp"
+	        android:layout_marginBottom="5dp">
 	        <TextView 
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
@@ -40,13 +47,17 @@
 	            android:layout_weight="2"
 	            android:hint="@string/patient_id_et"
 	            android:singleLine="true"
-	            android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
+	            android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	            android:background="@drawable/edittext_back"/>
 	    </TableRow>
-	    <TableRow>
+	    <TableRow
+	        android:layout_marginTop="5dp"
+	        android:layout_marginBottom="5dp">
 	        <TextView 
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
 	            android:layout_weight="1"
+	            android:layout_gravity="center"
 	            android:gravity="center"
 	            android:text="@string/patient_gender_tv"
              	android:textStyle="bold"/>
@@ -69,11 +80,14 @@
 	                android:text="@string/patient_female_rb"/>
 	        </RadioGroup>
 	    </TableRow>
-	    <TableRow>
+	    <TableRow
+	        android:layout_marginTop="5dp"
+	        android:layout_marginBottom="5dp">
 	        <TextView 
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
 	            android:layout_weight="1"
+	            android:layout_gravity="center"
 	            android:gravity="center_horizontal"
 	            android:text="@string/patient_birth_tv"
              	android:textStyle="bold"/>
@@ -92,7 +106,9 @@
 		            android:endYear="2050"/>
 	        </LinearLayout>
 	    </TableRow>
-	    <TableRow>
+	    <TableRow
+	        android:layout_marginTop="5dp"
+	        android:layout_marginBottom="5dp">
 	        <TextView 
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
@@ -106,7 +122,8 @@
 	            android:layout_height="wrap_content"
 	            android:layout_weight="2"
 	            android:singleLine="true"
-	            android:hint="@string/patient_diagnose_et"/>
+	            android:hint="@string/patient_diagnose_et"
+	            android:background="@drawable/edittext_back"/>
 	    </TableRow>
 	    <!-- <TableRow>
 	        <TextView 
@@ -141,6 +158,11 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="center"
-	        android:text="@string/patient_info_submit"/>
+	        android:text="@string/patient_info_submit"
+	        android:layout_marginBottom="10dp"
+	        android:layout_marginTop="5dp"
+            android:textSize="20sp"
+		    android:textColor="@color/white_text"
+            android:background="@drawable/btn_press"/>
 	</TableLayout>
 </ScrollView>

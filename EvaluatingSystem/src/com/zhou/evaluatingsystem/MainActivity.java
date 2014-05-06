@@ -117,6 +117,16 @@ public class MainActivity extends Activity
 			}
 		}
 	}
+	@Override
+	protected void onResume() 
+	{
+		Cursor cursor = this.dbHelper.queryAllPatient();
+		this.patient_num.setText(cursor.getCount() + "");
+		((SimpleCursorAdapter)patient_manage.getAdapter())
+		.changeCursor(cursor);
+		// TODO 自动生成的方法存根
+		super.onResume();
+	}
 	private SimpleCursorAdapter getAdapter()
 	{
 		Cursor cursor = this.dbHelper.queryAllPatient();
@@ -234,6 +244,15 @@ public class MainActivity extends Activity
 					patient_num.setText(cursor.getCount() + "");
 					((SimpleCursorAdapter)patient_manage.getAdapter())
 					.changeCursor(cursor);
+					Toast.makeText(MainActivity.this,
+							FinalUtil.DELETE_SUCCESS,
+							Toast.LENGTH_LONG).show();
+				}
+				else
+				{
+					Toast.makeText(MainActivity.this,
+							FinalUtil.DELETE_FAIL,
+							Toast.LENGTH_LONG).show();
 				}
 			}
 		}).create().show();

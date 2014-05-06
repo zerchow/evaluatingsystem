@@ -4,6 +4,11 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
     <TextView 
+        android:id="@+id/type_2_4_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+    <TextView 
         android:id="@+id/type_2_4_doctor"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
