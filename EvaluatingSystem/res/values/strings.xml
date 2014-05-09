@@ -5,9 +5,9 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <!-- 入口界面 -->
-    <string name="patient_info_enter">患者信息一览</string>
-    <string name="synchronization_enter">信息同步</string>
-    <string name="backup_enter">信息备份</string>
+    <string name="patient_info_enter">患者信息管理</string>
+    <string name="synchronization_enter">数据同步</string>
+    <string name="backup_enter">数据备份</string>
     <string name="exit_enter">退出系统</string>
     <!-- 患者信息界面 -->
     <string name="patient_info_in">患者信息录入</string>
@@ -33,7 +33,7 @@
     <string name="patientinfo_diagnose">诊断</string>
     <!-- 评估主界面 -->
     <string name="type_1">癫痫测验</string>
-    <string name="type_1_1">MMSE</string>
+    <string name="type_1_1">简易智能精神状态检查量表</string>
     <string name="type_2">额叶功能</string>
     <string name="type_2_1">汉诺塔任务</string>
     <string name="type_2_2">连线测验</string>
@@ -41,7 +41,7 @@
     <string name="type_2_4">线索GoNoGo</string>
     <string name="type_2_5">字色干扰</string>
     <string name="type_3">记忆测验</string>
-    <string name="type_3_1">自动加工字母记忆广度</string>
+    <string name="type_3_1">自动化操作广度任务</string>
     <string name="type_3_2">视觉数字广度</string>
     <string name="type_3_3">听觉数字广度</string>
     <!-- mmse -->
