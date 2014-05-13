@@ -349,6 +349,20 @@ public class TowerOfHanoiView extends View
 				new Point(this.width / 2, this.height / 2),
 				new Point(this.width * 3 / 4, this.height * 3 / 4)
 		};*/
+		/*this.circles = new Point[][]{
+		new Point[]{
+				new Point(this.tops[0].x,this.height * 7 / 8),
+				new Point(this.tops[0].x,this.height * 5 / 8),
+				new Point(this.tops[0].x,this.height * 3 / 8)
+		},
+		new Point[]{
+				new Point(this.tops[1].x,this.height * 7 / 8),
+				new Point(this.tops[1].x,this.height * 5 / 8)
+		},
+		new Point[]{
+				new Point(this.tops[2].x,this.height * 7 / 8)
+		}
+		};*/
 		for(int i = 0; i < this.tops.length; i ++)
 		{
 			this.tops[i].x = this.width * (i + 1) / 4;
@@ -362,20 +376,7 @@ public class TowerOfHanoiView extends View
 		this.r = (this.width > this.height ? this.height :
 			this.width) / 4 - 20;
 		this.r /= 2;
-		/*this.circles = new Point[][]{
-				new Point[]{
-						new Point(this.tops[0].x,this.height * 7 / 8),
-						new Point(this.tops[0].x,this.height * 5 / 8),
-						new Point(this.tops[0].x,this.height * 3 / 8)
-				},
-				new Point[]{
-						new Point(this.tops[1].x,this.height * 7 / 8),
-						new Point(this.tops[1].x,this.height * 5 / 8)
-				},
-				new Point[]{
-						new Point(this.tops[2].x,this.height * 7 / 8)
-				}
-		};*/
+		
 		for(int i = 0; i < this.circles.length; i ++)
 		{
 			for(int j = 0; j < this.circles[i].length; j ++)
@@ -491,14 +492,10 @@ public class TowerOfHanoiView extends View
 	{
 		this.pillars.get(this.toPillar).push(this.fingerPaint.getColor());
 		if(this.fromPillar == this.toPillar)
-		{
-			//小球还是位置不变
-		}
+			;//小球还是位置不变
 		else
-		{
-			this.sendMessage(FinalUtil.MOVEMSG,
-					"moves",++ this.currentMoves);
-		}
+			//标注为一次移动
+			this.sendMessage(FinalUtil.MOVEMSG,"moves",++ this.currentMoves);
 		this.fromPillar = this.toPillar = -1;
 		if(this.currentMoves == this.targetMoves[TowerOfHanoiView.currentProblem])
 		{

@@ -251,4 +251,5 @@ public class FinalUtil implements Serializable
 			file.delete();
 		}
 	}
+	public static final String PREFERENCENAME = "evalsysinfo";
 }

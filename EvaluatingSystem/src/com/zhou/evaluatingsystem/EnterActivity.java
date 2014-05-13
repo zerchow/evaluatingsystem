@@ -15,12 +15,14 @@ import java.net.UnknownHostException;
 
 import com.zhou.socket.BackupSocketThread;
 import com.zhou.socket.SynchronizationSocketThread;
+import com.zhou.sqlite.EvalSysDatabaseHelper;
 import com.zhou.util.FinalUtil;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
@@ -226,10 +228,7 @@ public class EnterActivity extends Activity
 				{
 					if(id == R.id.synchronization_btn)
 					{
-						SynchronizationSocketThread synchronization = 
-								new SynchronizationSocketThread(EnterActivity.this,
-										ip_name_et.getText().toString());
-						synchronization.start();
+						showGetIdDialog(ip_name_et.getText().toString());
 					}
 					else if(id == R.id.backup_btn)
 					{
@@ -250,6 +249,79 @@ public class EnterActivity extends Activity
 			}
 		});
 		showDialog.show();
+		SharedPreferences preferences;
+		preferences = this.getSharedPreferences(
+				FinalUtil.PREFERENCENAME,this.MODE_PRIVATE);
+		String ip = preferences.getString("ipinfo", null);
+		if(ip != null)
+		{
+			ip_name_et.setText(ip);
+		}
+	}
+	private void showGetIdDialog(final String ip)
+	{
+		if(! this.hasNetwork())
+			return;
+		View view = getLayoutInflater().inflate(
+				R.layout.id_layout,null);
+		final EditText id_name_et = (EditText)
+				view.findViewById(R.id.id_name_et);
+		Button id_submit = (Button)
+				view.findViewById(R.id.id_name_submit);
+		Button id_cancel = (Button)
+				view.findViewById(R.id.id_name_cancel);
+		AlertDialog.Builder subdialog = 
+				FinalUtil.getDialog(this, "请输入患者住院ID", false);
+		subdialog.setView(view);
+		final AlertDialog showDialog = subdialog.create();
+		id_submit.setOnClickListener(
+		new OnClickListener() 
+		{
+			public void onClick(View v) 
+			{
+				if(TextUtils.isEmpty(
+						id_name_et.getText()))
+				{
+					return;
+				}
+				else if(! isIdExist(id_name_et.getText().toString()))
+				{
+					SynchronizationSocketThread synchronization = 
+							new SynchronizationSocketThread(EnterActivity.this,
+									ip,id_name_et.getText().toString());
+					synchronization.start();
+					showDialog.dismiss();
+				}
+				else
+				{
+					showDialog.dismiss();
+				}
+			}
+		});
+		id_cancel.setOnClickListener(
+		new OnClickListener() 
+		{
+			public void onClick(View v) 
+			{
+				showDialog.dismiss();
+			}
+		});
+		showDialog.show();
+	}
+	private boolean isIdExist(String id)
+	{
+		EvalSysDatabaseHelper dbHelper = new EvalSysDatabaseHelper(this);
+		if(dbHelper.queryPatient(id).getCount() == 0)
+		{
+			dbHelper.close();
+			return false;
+		}
+		else
+		{
+			dbHelper.close();
+			FinalUtil.getQuickDialog(this, "患者本地已经存在，无需同步");
+			return true;
+		}
 	}
 	public void exitSystem(View view)
 	{
@@ -314,4 +386,9 @@ public class EnterActivity extends Activity
 			}
 		}
 	};
+	@Override
+	protected void onDestroy() {
+		// TODO 自动生成的方法存根
+		super.onDestroy();
+	}
 }

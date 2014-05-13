@@ -210,6 +210,7 @@
     <string name="bms">倒序MS</string>
     <!-- ip -->
     <string name="ip_name_tv">服务器IP地址</string>
+    <string name="id_name_tv">患者住院ID</string>
     <!-- detail -->
     <string name="modifyInfo">修改患者信息</string>
     <string name="allResult">全部评估结果</string>

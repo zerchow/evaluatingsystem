@@ -60,27 +60,16 @@ public class MainActivity extends Activity
 		//初始化变量
 		this.dbHelper = new EvalSysDatabaseHelper(this);
 		//初始化控件
-		/*this.patient_info_in = (Button)
-				findViewById(R.id.patient_info_in);*/
 		this.patient_num = (TextView)
 				findViewById(R.id.patien_num);
+		
 		this.patient_manage = (ListView)
 				findViewById(R.id.patient_manage);
-		//为控件指定监听器
-		/*this.patient_info_in.setOnClickListener(
-		new OnClickListener() 
-		{
-			public void onClick(View v) 
-			{
-				Intent intent = new Intent(
-						MainActivity.this,
-						PatientInfoActivity.class);
-				startActivityForResult(intent, 
-						FinalUtil.ADD_REQUEST_CODE);
-			}
-		});*/
+		
 		//为控件指定适配器
+		
 		this.patient_manage.setAdapter(this.getAdapter());
+		
 		this.patient_manage.setOnItemClickListener(
 				new PatientInfoItemClickListener());
 	}
@@ -95,7 +84,6 @@ public class MainActivity extends Activity
 	protected void onActivityResult(int requestCode, int resultCode, Intent intent) 
 	{
 		// TODO 自动生成的方法存根
-		//super.onActivityResult(requestCode, resultCode, data);
 		if(requestCode == FinalUtil.ADD_REQUEST_CODE &&
 				resultCode == FinalUtil.ADD_RESULT_CODE)
 		{
@@ -104,7 +92,6 @@ public class MainActivity extends Activity
 					"new_patient");
 			if(this.dbHelper.insertPatient(patient))
 			{
-				//this.patient_manage.setAdapter(this.getAdapter());
 				Cursor cursor = this.dbHelper.queryAllPatient();
 				this.patient_num.setText(cursor.getCount() + "");
 				((SimpleCursorAdapter)patient_manage.getAdapter())
@@ -198,21 +185,13 @@ public class MainActivity extends Activity
 				public void onClick(DialogInterface dialog,int pos)
 				{
 					if(pos == 0)
-					{
 						patientDetail(hospital_id);
-					}
 				    else if(pos == 1)
-					{
 						startEvaluation(hospital_id);
-					}
 					else if(pos == 2)
-					{
 						checkResult(hospital_id);
-					}
 					else if(pos == 3)
-					{
 						deletePatient(hospital_id);
-					}
 				}
 			});
 			builder.create().show();

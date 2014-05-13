@@ -13,6 +13,7 @@ import com.zhou.evaluatingsystem.EnterActivity;
 import com.zhou.util.FinalUtil;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Message;
 import android.widget.Toast;
@@ -29,6 +30,8 @@ public class BackupSocketThread extends Thread
 	private final int PORT = 3000;
 	private final int BUFFER_LEN = 1024;
 	private byte[] buffer = new byte[this.BUFFER_LEN];
+	private SharedPreferences preferences;
+	private SharedPreferences.Editor editor;
 	public void run()
 	{
 		Socket socket = null;
@@ -50,6 +53,11 @@ public class BackupSocketThread extends Thread
 				out.write(buffer);
 			}
 			this.sendMessage("备份成功");
+			this.preferences = this.context.getSharedPreferences(
+					FinalUtil.PREFERENCENAME,this.context.MODE_PRIVATE);
+			this.editor = this.preferences.edit();
+			this.editor.putString("ipinfo", this.IP);
+			this.editor.commit();
 		}
 		catch(SocketTimeoutException timeout_e)
 		{
