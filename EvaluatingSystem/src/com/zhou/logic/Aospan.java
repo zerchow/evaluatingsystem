@@ -223,9 +223,9 @@ public class Aospan
 	}
 	private class Math
 	{
-		public String math;
-		public String math_ans;
-		public boolean math_judge;
+		public String math;//算术式
+		public String math_ans;//算术式答案
+		public boolean math_judge;//算术式答案的正确与否
 	}
 	private ArrayList<Math> getRandomMath(int size)
 	{
@@ -250,19 +250,15 @@ public class Aospan
 			String mark = sign.remove(index);
 			boolean j = judge.remove(random.nextInt(judge.size()));
 			int r = rand.remove(random.nextInt(rand.size()));
-			int result = mark.equals("+") ? (val1 + str2) :
-				(val1 - str2);
+			int result = mark.equals("+") ? (val1 + str2) : (val1 - str2);
 			int val2 = mark.equals("+") ? str2 : (-1) * str2;
 			while(result < 0)
 			{
 				val2 += 3;
 				str2 = java.lang.Math.abs(val2);
 				if(val2 > 0)
-				{
 					mark = "+";
-				}
-				result = mark.equals("+") ? (val1 + str2) :
-					(val1 - str2);
+				result = mark.equals("+") ? (val1 + str2) : (val1 - str2);
 			}
 			if(j == false)
 			{

@@ -256,6 +256,7 @@ public class EnterActivity extends Activity
 		if(ip != null)
 		{
 			ip_name_et.setText(ip);
+			ip_name_et.setSelection(ip.length());
 		}
 	}
 	private void showGetIdDialog(final String ip)

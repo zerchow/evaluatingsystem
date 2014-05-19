@@ -174,6 +174,14 @@ public class WisconsinActivity extends Activity {
 			Bundle bundle = msg.getData();
 			switch(msg.what)
 			{
+			case FinalUtil.WISCORRECT:
+				Toast.makeText(WisconsinActivity.this,
+						"正确",Toast.LENGTH_LONG).show();
+				break;
+			case FinalUtil.WISWRONG:
+				Toast.makeText(WisconsinActivity.this,
+						"错误",Toast.LENGTH_LONG).show();
+				break;
 			case FinalUtil.WISTOOMUCHTOTAL:
 				FinalUtil.getDialog(WisconsinActivity.this,
 						"结束",false)
@@ -203,14 +211,6 @@ public class WisconsinActivity extends Activity {
 			case FinalUtil.WISNEXT:
 				response_iv.setImageResource(
 						bundle.getInt("next"));
-				break;
-			case FinalUtil.WISCORRECT:
-				Toast.makeText(WisconsinActivity.this,
-						"正确",Toast.LENGTH_LONG).show();
-				break;
-			case FinalUtil.WISWRONG:
-				Toast.makeText(WisconsinActivity.this,
-						"错误",Toast.LENGTH_LONG).show();
 				break;
 			}
 			super.handleMessage(msg);

@@ -417,6 +417,7 @@ public class DigitSpanAcousticActivity extends Activity
 	private MediaPlayer getMP(int r_id)
 	{
 		final MediaPlayer player = MediaPlayer.create(this, r_id);
+		//播放完成释放资源
 		player.setOnCompletionListener(
 		new OnCompletionListener() 
 		{
@@ -425,6 +426,7 @@ public class DigitSpanAcousticActivity extends Activity
 				player.release();
 			}
 		});
+		//播放错误释放资源
 		player.setOnErrorListener(
 		new OnErrorListener() 
 		{
@@ -468,12 +470,12 @@ public class DigitSpanAcousticActivity extends Activity
 				{
 					String temp = this.toShow.substring(i, i + 1);
 					Thread.sleep(1100);
-					Message msg = new Message();
+					/*Message msg = new Message();
 					msg.what = FinalUtil.DS_SHOWDIGIT;
 					Bundle bundle = new Bundle();
 					bundle.putString("show", temp);
 					msg.setData(bundle);
-					handler.sendMessage(msg);
+					handler.sendMessage(msg);*/
 					getMP(ACOUSTICRESOURCE
 							[Integer.valueOf(temp) - 1]).start();
 				}

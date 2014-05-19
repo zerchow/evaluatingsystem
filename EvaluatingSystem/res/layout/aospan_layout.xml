@@ -27,7 +27,7 @@
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:layout_weight="1"
-		        android:text="Yes"
+		        android:text="正确"
 		        android:layout_margin="15dp"
 		        android:onClick="clickYes"/>
 		    <Button 
@@ -35,7 +35,7 @@
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:layout_weight="1"
-		        android:text="No"
+		        android:text="错误"
 		        android:layout_margin="15dp"
 		        android:onClick="clickNo"/>
 	    </LinearLayout>

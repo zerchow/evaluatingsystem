@@ -192,24 +192,22 @@ public class CuedGoNoGoActivity extends Activity
 	//新的任务线程
 	class CuedThread extends Thread
 	{
-		private int soa;
-		public CuedThread(int soa)
-		{
-			this.soa = soa;
-		}
 		public void run() 
 		{
 			if(stop)
 				return;
-			super.run();
 			try 
 			{
+				//画十字锚
 				handler.sendEmptyMessage(FinalUtil.CUEDFIXATIONMSG);
 				Thread.sleep(cueWhiteFixation);
+				//白屏
 				handler.sendEmptyMessage(FinalUtil.CUEDWHITEMSG);
 				Thread.sleep(cueWhite);
+				//空框
 				handler.sendEmptyMessage(FinalUtil.CUEDFRAMEMSG);
 				Thread.sleep(soa);
+				//填充框
 				handler.sendEmptyMessage(FinalUtil.CUEDCOLORFRAMEMSG);
 				cued.createUser();
 				for(int i = 0; i < 5; i ++)
@@ -235,6 +233,11 @@ public class CuedGoNoGoActivity extends Activity
 			{
 				e.printStackTrace();
 			}
+		}
+		private int soa;
+		public CuedThread(int soa)
+		{
+			this.soa = soa;
 		}
 	}
 	

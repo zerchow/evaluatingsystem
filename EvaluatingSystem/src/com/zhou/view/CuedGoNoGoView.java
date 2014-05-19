@@ -251,36 +251,35 @@ public class CuedGoNoGoView extends View
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 		this.width = this.getMeasuredWidth();
 		this.height = this.getMeasuredHeight();
-		//
+		//中心点坐标、长边和短边
 		int center_x = this.width / 2;
 		int center_y = this.height / 2;
 		int short_length = ((this.width > this.height) ?
 				this.height : this.width) / 3;
 		int long_length = ((this.width > this.height) ? 
 				this.height : this.width) - 20;
-		//
+		//横向框的坐标
 		int top = center_y - short_length / 2;
 		int bottom = center_y + short_length / 2;
-		int left = center_x - short_length / 2;
-		int right = center_x + short_length / 2;
-		int toptop = center_y - long_length / 2;
-		int bottombottom = center_y + long_length / 2;
 		int leftleft = center_x - long_length / 2;
 		int rightright = center_x + long_length / 2;
+		this.horizontalRect.left = leftleft;
+		this.horizontalRect.top = top;
+		this.horizontalRect.right = rightright;
+		this.horizontalRect.bottom = bottom;
+		//竖向框的坐标
+		int toptop = center_y - long_length / 2;
+		int bottombottom = center_y + long_length / 2;
+		int left = center_x - short_length / 2;
+		int right = center_x + short_length / 2;
+		this.verticalRect.left = left;
+		this.verticalRect.top = toptop;
+		this.verticalRect.right = right;
+		this.verticalRect.bottom = bottombottom;
 		//十字架坐标
 		this.fixationLines[0] = left;this.fixationLines[1] = center_y;
 		this.fixationLines[2] = right;this.fixationLines[3] = center_y;
 		this.fixationLines[4] = center_x;this.fixationLines[5] = top;
 		this.fixationLines[6] = center_x;this.fixationLines[7] = bottom;
-		//垂直空框
-		this.verticalRect.left = left;
-		this.verticalRect.top = toptop;
-		this.verticalRect.right = right;
-		this.verticalRect.bottom = bottombottom;
-		//水平空框
-		this.horizontalRect.left = leftleft;
-		this.horizontalRect.top = top;
-		this.horizontalRect.right = rightright;
-		this.horizontalRect.bottom = bottom;
 	}
 }
